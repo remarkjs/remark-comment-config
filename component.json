@@ -1,6 +1,6 @@
 {
   "name": "mdast-comment-config",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Set mdast options with comments during runtime",
   "license": "MIT",
   "keywords": [
