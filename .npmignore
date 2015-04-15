@@ -1,0 +1,15 @@
+.*
+*.log
+bower_components/
+build/
+components/
+coverage/
+node_modules/
+build.js
+example.js
+mdast-comment-config.js
+mdast-comment-config.min.js
+test.js
+bower.json
+component.json
+History.md

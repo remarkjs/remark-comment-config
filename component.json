@@ -1,0 +1,20 @@
+{
+  "name": "mdast-comment-config",
+  "version": "0.0.0",
+  "description": "Set mdast options with comments during runtime",
+  "license": "MIT",
+  "keywords": [
+    "comment",
+    "options",
+    "config",
+    "settings",
+    "mdast"
+  ],
+  "dependencies": {
+    "wooorm/mdast-zone": "^0.2.0"
+  },
+  "repository": "wooorm/mdast-comment-config",
+  "scripts": [
+    "index.js"
+  ]
+}

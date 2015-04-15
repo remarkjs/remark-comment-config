@@ -1,0 +1,55 @@
+{
+  "name": "mdast-comment-config",
+  "version": "0.0.0",
+  "description": "Set mdast options with comments during runtime",
+  "license": "MIT",
+  "keywords": [
+    "comment",
+    "options",
+    "config",
+    "settings",
+    "mdast"
+  ],
+  "dependencies": {
+    "mdast-zone": "^0.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/mdast-comment-config.git"
+  },
+  "author": "Titus Wormer <tituswormer@gmail.com>",
+  "peerDependencies": {
+    "mdast": ">=0.18.0"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.0",
+    "eslint": "^0.19.0",
+    "esmangle": "^1.0.0",
+    "istanbul": "^0.3.0",
+    "jscs": "^1.0.0",
+    "jscs-jsdoc": "^0.4.0",
+    "mdast": "^0.18.0",
+    "mdast-github": "^0.2.0",
+    "mdast-toc": "^0.2.0",
+    "mdast-usage": "^0.2.0",
+    "mocha": "^2.0.0"
+  },
+  "scripts": {
+    "test-api": "mocha --check-leaks test.js",
+    "test-coveralls": "istanbul cover _mocha --report lcovonly -- --check-leaks test.js",
+    "test-coverage": "istanbul cover _mocha -- test.js",
+    "test-travis": "npm run test-coveralls",
+    "test": "npm run test-api",
+    "lint-api": "eslint index.js",
+    "lint-test": "eslint --env mocha test.js",
+    "lint-script": "eslint example.js",
+    "lint-style": "jscs --reporter inline index.js example.js test.js",
+    "lint": "npm run lint-api && npm run lint-test && npm run lint-script && npm run lint-style",
+    "make": "npm run lint && npm run test-coverage",
+    "bundle": "browserify --no-builtins index.js -s mdastCommentConfig > mdast-comment-config.js",
+    "postbundle": "esmangle mdast-comment-config.js > mdast-comment-config.min.js",
+    "build-md": "mdast . -oq",
+    "build": "npm run build-md && npm run bundle",
+    "prepublish": "npm run build"
+  }
+}

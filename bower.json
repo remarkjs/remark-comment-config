@@ -1,0 +1,35 @@
+{
+  "name": "mdast-comment-config",
+  "main": "mdast-comment-config.js",
+  "description": "Set mdast options with comments during runtime",
+  "license": "MIT",
+  "keywords": [
+    "comment",
+    "options",
+    "config",
+    "settings",
+    "mdast"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wooorm/mdast-comment-config.git"
+  },
+  "authors": [
+    "Titus Wormer <tituswormer@gmail.com>"
+  ],
+  "ignore": [
+    ".*",
+    "*.log",
+    "*.md",
+    "build/",
+    "components/",
+    "coverage/",
+    "node_modules/",
+    "build.js",
+    "example.js",
+    "index.js",
+    "test.js",
+    "component.json",
+    "package.json"
+  ]
+}
