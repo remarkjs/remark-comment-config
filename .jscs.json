@@ -1,4 +1,13 @@
 {
+  "excludeFiles": [
+    "build/",
+    "components/",
+    "coverage/",
+    "node_modules/",
+    "build.js",
+    "mdast-comment-config.js",
+    "mdast-comment-config.min.js"
+  ],
   "plugins": [
     "jscs-jsdoc"
   ],

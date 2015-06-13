@@ -1,0 +1,6 @@
+build/
+components/
+coverage/
+build.js
+mdast-comment-config.js
+mdast-comment-config.min.js
