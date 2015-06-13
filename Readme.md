@@ -41,8 +41,13 @@ UMD: globals, AMD, and CommonJS ([uncompressed](mdast-comment-config.js) and [co
 ## Table of Contents
 
 *   [Usage](#usage)
+
+*   [CLI](#cli)
+
 *   [API](#api)
+
     *   [mdast.use(commentConfig)](#mdastusecommentconfig)
+
 *   [License](#license)
 
 ## Usage
@@ -77,6 +82,7 @@ Yields:
 <!--mdast commonmark bullet="*"-->
 
 1.  Commonmark list (this is a parse setting)
+
 *   List item (this is a stringification setting)
 ```
 
