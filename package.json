@@ -21,6 +21,9 @@
   "peerDependencies": {
     "mdast": ">=0.22.0"
   },
+  "files": [
+    "index.js"
+  ],
   "devDependencies": {
     "browserify": "^10.0.0",
     "eslint": "^0.22.0",
