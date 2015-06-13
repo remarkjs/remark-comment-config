@@ -1,25 +1,26 @@
 # mdast-comment-config [![Build Status](https://img.shields.io/travis/wooorm/mdast-comment-config.svg?style=flat)](https://travis-ci.org/wooorm/mdast-comment-config) [![Coverage Status](https://img.shields.io/coveralls/wooorm/mdast-comment-config.svg?style=flat)](https://coveralls.io/r/wooorm/mdast-comment-config?branch=master)
 
-Set [**mdast**](https://github.com/wooorm/mdast) options with comments during runtime.
+Set [**mdast**](https://github.com/wooorm/mdast) options with comments during
+runtime.
 
 ## Installation
 
 [npm](https://docs.npmjs.com/cli/install)
 
 ```bash
-$ npm install mdast-comment-config
+npm install mdast-comment-config
 ```
 
 [Component.js](https://github.com/componentjs/component)
 
 ```bash
-$ component install wooorm/mdast-comment-config
+component install wooorm/mdast-comment-config
 ```
 
 [Bower](http://bower.io/#install-packages)
 
 ```bash
-$ bower install mdast-comment-config
+bower install mdast-comment-config
 ```
 
 [Duo](http://duojs.org/#getting-started)
@@ -96,9 +97,12 @@ mdast --use comment-config
 
 ### [mdast](https://github.com/wooorm/mdast#api).[use](https://github.com/wooorm/mdast#mdastuseplugin-options)(commentConfig)
 
-Parses comments, such as `<!--mdast foo="bar" baz-->`, and passes the “attributes” as [settings](https://github.com/wooorm/mdast#mdastprocessvalue-options-done) to **mdast**.
+Parses comments, such as `<!--mdast foo="bar" baz-->`, and passes the
+“attributes” as [settings](https://github.com/wooorm/mdast#mdastprocessvalue-options-done)
+to **mdast**.
 
-Just like [**mdast-yaml-config**](https://github.com/wooorm/mdast-yaml-config), but comments are invisible when rendering to HTML, such as on GitHub.
+Just like [**mdast-yaml-config**](https://github.com/wooorm/mdast-yaml-config),
+but comments are invisible when rendering to HTML, such as on GitHub.
 
 **Signatures**
 

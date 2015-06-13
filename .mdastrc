@@ -1,9 +1,10 @@
 {
   "plugins": [
+    "lint",
     "./",
-    "mdast-github",
-    "mdast-toc",
-    "mdast-usage"
+    "github",
+    "toc",
+    "usage"
   ],
   "settings": {
     "bullet": "*"
