@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+0.1.2 / 2015-07-12
+==================
+
+*   Remove peer-dependencies ([5fe57b0](https://github.com/wooorm/mdast-comment-config/commit/5fe57b0))
+
 0.1.1 / 2015-06-13
 ==================
 
