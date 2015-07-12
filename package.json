@@ -18,9 +18,6 @@
     "url": "https://github.com/wooorm/mdast-comment-config.git"
   },
   "author": "Titus Wormer <tituswormer@gmail.com>",
-  "peerDependencies": {
-    "mdast": ">=0.22.0"
-  },
   "files": [
     "index.js"
   ],
