@@ -14,25 +14,10 @@ var zone = require('mdast-zone');
  *   configuration on.
  */
 function on(marker, context) {
-    var config = marker.parameters;
-    var position;
-    var err;
-
     try {
-        context.setOptions(config);
+        context.setOptions(marker.parameters);
     } catch (exception) {
-        position = marker.node.position.start;
-
-        err = new Error(
-            position.line + ':' + position.column + ': ' +
-            exception.message
-        );
-
-        err.reason = exception.message;
-        err.line = position.line;
-        err.column = position.column;
-
-        throw err;
+        context.file.fail(exception.message, marker.node);
     }
 }
 

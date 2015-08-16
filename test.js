@@ -62,6 +62,6 @@ describe('mdast-comment-config()', function () {
                 '-   Foo',
                 ''
             ].join('\n'));
-        }, /Error: 1:1: Invalid value `\?` for setting `options\.bullet`/);
+        }, /1:1-1:24: Invalid value `\?` for setting `options\.bullet`/);
     });
 });
