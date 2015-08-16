@@ -10,8 +10,9 @@ var zone = require('mdast-zone');
 /**
  * Wrapper factory.
  *
- * @param {Marker} marker
- * @param {Parser|Compiler} context
+ * @param {Marker} marker - Marker object.
+ * @param {Parser|Compiler} context - Context to set
+ *   configuration on.
  */
 function on(marker, context) {
     var config = marker.parameters;
@@ -39,7 +40,7 @@ function on(marker, context) {
 /**
  * Modify mdast to parse/stringify YAML.
  *
- * @param {MDAST} mdast
+ * @param {MDAST} mdast - Instance.
  */
 function attacher(mdast) {
     mdast.use(zone({
@@ -57,6 +58,12 @@ module.exports = attacher;
 
 },{"mdast-zone":2}],2:[function(require,module,exports){
 'use strict';
+
+/*
+ * Dependencies.
+ */
+
+var visit = require('unist-util-visit');
 
 /*
  * Methods.
@@ -112,7 +119,7 @@ var PARAMETERS = new RegExp(
 /**
  * Create an expression which matches a marker.
  *
- * @param {string} name
+ * @param {string} name - Plug-in name.
  * @return {RegExp}
  */
 function marker(name) {
@@ -142,35 +149,9 @@ function marker(name) {
 }
 
 /**
- * Visit.
- *
- * @param {Node} tree
- * @param {function(node, parent)} callback
- */
-function visit(tree, callback) {
-    /**
-     * Visit one node.
-     *
-     * @param {Node} node
-     * @param {number} index
-     */
-    function one(node, index) {
-        var parent = this || null;
-
-        callback(node, parent, index);
-
-        if (node.children) {
-            node.children.forEach(one, node);
-        }
-    }
-
-    one(tree);
-}
-
-/**
  * Parse `value` into an object.
  *
- * @param {string} value
+ * @param {string} value - HTML comment.
  * @return {Object}
  */
 function parameters(value) {
@@ -198,8 +179,9 @@ function parameters(value) {
 /**
  * Factory to test if `node` matches `settings`.
  *
- * @param {Object} settings
- * @param {function(Object)} callback
+ * @param {Object} settings - Configuration.
+ * @param {Function} callback - Invoked iwht a matching
+ *   HTML node.
  * @return {Function}
  */
 function testFactory(settings, callback) {
@@ -209,8 +191,8 @@ function testFactory(settings, callback) {
     /**
      * Test if `node` matches the bound settings.
      *
-     * @param {Node} node
-     * @param {Parser|Compiler} [context]
+     * @param {MDASTNode} node - Node to check.
+     * @param {Parser|Compiler} [context] - Context class.
      * @return {Object?}
      */
     function test(node, context) {
@@ -253,7 +235,7 @@ function testFactory(settings, callback) {
  * Parse factory.
  *
  * @param {Function} tokenize - Previous parser.
- * @param {Object} settings
+ * @param {Object} settings - Configuration.
  */
 function parse(tokenize, settings) {
     var callback = settings.onparse;
@@ -281,7 +263,7 @@ function parse(tokenize, settings) {
  * Stringify factory.
  *
  * @param {Function} compile - Previous compiler.
- * @param {Object} settings
+ * @param {Object} settings - Configuration.
  */
 function stringify(compile, settings) {
     var callback = settings.onstringify;
@@ -294,7 +276,7 @@ function stringify(compile, settings) {
     /**
      * Stringify HTML.
      *
-     * @param {Object} node
+     * @param {MDASTHTMLNode} node - HTML node.
      * @return {string}
      */
     return function (node) {
@@ -307,7 +289,7 @@ function stringify(compile, settings) {
 /**
  * Run factory.
  *
- * @param {Object} settings
+ * @param {Object} settings - Configuration.
  */
 function run(settings) {
     var callback = settings.onrun;
@@ -323,11 +305,12 @@ function run(settings) {
      *
      * Passed intto `visit`.
      *
-     * @param {Node} node
-     * @param {Node} parent
-     * @param {number} index
+     * @param {MDASTNode} node - node to check.
+     * @param {number} index - Position of `node` in
+     *   `parent`.
+     * @param {MDASTNode} parent - Parent of `node`.
      */
-    function gather(node, parent, index) {
+    function gather(node, index, parent) {
         var result = test(node);
         var type = result && result.type;
 
@@ -373,7 +356,7 @@ function run(settings) {
     /**
      * Modify AST.
      *
-     * @param {Object} node
+     * @param {MDASTNode} node - Root node.
      */
     return function (node) {
         visit(node, gather);
@@ -384,8 +367,8 @@ function run(settings) {
  * Modify mdast to invoke callbacks when HTML commnts are
  * found.
  *
- * @param {MDAST} mdast
- * @param {Object?} options
+ * @param {MDAST} mdast - Instance.
+ * @param {Object?} [options] - Configuration.
  * @return {Function?}
  */
 function attacher(mdast, options) {
@@ -415,7 +398,7 @@ function attacher(mdast, options) {
  * Reason for this is that **mdast** only allows a single
  * function to be `use`d once.
  *
- * @param {Object} options
+ * @param {Object} options - Plugin configuration.
  * @return {Function}
  */
 function wrapper(options) {
@@ -433,6 +416,121 @@ function wrapper(options) {
  */
 
 module.exports = wrapper;
+
+},{"unist-util-visit":3}],3:[function(require,module,exports){
+/**
+ * @author Titus Wormer
+ * @copyright 2015 Titus Wormer. All rights reserved.
+ * @module unist:util:visit
+ * @fileoverview Utility to recursively walk over unist nodes.
+ */
+
+'use strict';
+
+/**
+ * Walk forwards.
+ *
+ * @param {Array.<*>} values - Things to iterate over,
+ *   forwards.
+ * @param {function(*, number): boolean} callback - Function
+ *   to invoke.
+ * @return {boolean} - False if iteration stopped.
+ */
+function forwards(values, callback) {
+    var index = -1;
+    var length = values.length;
+
+    while (++index < length) {
+        if (callback(values[index], index) === false) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+/**
+ * Walk backwards.
+ *
+ * @param {Array.<*>} values - Things to iterate over,
+ *   backwards.
+ * @param {function(*, number): boolean} callback - Function
+ *   to invoke.
+ * @return {boolean} - False if iteration stopped.
+ */
+function backwards(values, callback) {
+    var index = values.length;
+    var length = -1;
+
+    while (--index > length) {
+        if (callback(values[index], index) === false) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+/**
+ * Visit.
+ *
+ * @param {Node} tree - Root node
+ * @param {string} [type] - Node type.
+ * @param {function(node): boolean?} callback - Invoked
+ *   with each found node.  Can return `false` to stop.
+ * @param {boolean} [reverse] - By default, `visit` will
+ *   walk forwards, when `reverse` is `true`, `visit`
+ *   walks backwards.
+ */
+function visit(tree, type, callback, reverse) {
+    var iterate;
+    var one;
+    var all;
+
+    if (typeof type === 'function') {
+        reverse = callback;
+        callback = type;
+        type = null;
+    }
+
+    iterate = reverse ? backwards : forwards;
+
+    /**
+     * Visit `children` in `parent`.
+     */
+    all = function (children, parent) {
+        return iterate(children, function (child, index) {
+            return child && one(child, index, parent);
+        });
+    };
+
+    /**
+     * Visit a single node.
+     */
+    one = function (node, index, parent) {
+        var result;
+
+        index = index || (parent ? 0 : null);
+
+        if (!type || node.type === type) {
+            result = callback(node, index, parent || null);
+        }
+
+        if (node.children && result !== false) {
+            return all(node.children, node);
+        }
+
+        return result;
+    };
+
+    one(tree);
+}
+
+/*
+ * Expose.
+ */
+
+module.exports = visit;
 
 },{}]},{},[1])(1)
 });

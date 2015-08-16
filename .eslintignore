@@ -2,5 +2,6 @@ build/
 components/
 coverage/
 build.js
+example.js
 mdast-comment-config.js
 mdast-comment-config.min.js

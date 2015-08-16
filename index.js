@@ -9,8 +9,9 @@ var zone = require('mdast-zone');
 /**
  * Wrapper factory.
  *
- * @param {Marker} marker
- * @param {Parser|Compiler} context
+ * @param {Marker} marker - Marker object.
+ * @param {Parser|Compiler} context - Context to set
+ *   configuration on.
  */
 function on(marker, context) {
     var config = marker.parameters;
@@ -38,7 +39,7 @@ function on(marker, context) {
 /**
  * Modify mdast to parse/stringify YAML.
  *
- * @param {MDAST} mdast
+ * @param {MDAST} mdast - Instance.
  */
 function attacher(mdast) {
     mdast.use(zone({

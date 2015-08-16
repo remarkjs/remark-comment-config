@@ -13,8 +13,8 @@ var commentConfig = require('./');
 /**
  * Shortcut to process.
  *
- * @param {string} value
- * @param {Object?} options
+ * @param {string} value - Value to test.
+ * @param {Object?} options - Configuration.
  * @return {string}
  */
 function comments(value, options) {
