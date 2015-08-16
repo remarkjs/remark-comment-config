@@ -1,7 +1,7 @@
 {
   "name": "mdast-comment-config",
   "main": "mdast-comment-config.js",
-  "description": "Set mdast options with comments during runtime",
+  "description": "Configure mdast with comments at runtime",
   "license": "MIT",
   "keywords": [
     "comment",

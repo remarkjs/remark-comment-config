@@ -1,3 +1,11 @@
+/**
+ * @author Titus Wormer
+ * @copyright 2015 Titus Wormer
+ * @license MIT
+ * @module mdast:comment-config
+ * @fileoverview Configure mdast with comments at runtime.
+ */
+
 'use strict';
 
 /*
@@ -22,7 +30,7 @@ function on(marker, context) {
 }
 
 /**
- * Modify mdast to parse/stringify YAML.
+ * Modify mdast to read configuration from comments.
  *
  * @param {MDAST} mdast - Instance.
  */
