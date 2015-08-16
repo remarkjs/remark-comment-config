@@ -2,6 +2,12 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+1.0.0 / 2015-08-16
+==================
+
+*   Refactor to use vfile errors ([3943f15](https://github.com/wooorm/mdast-comment-config/commit/3943f15))
+*   Update mdast-zone, dev-dependencies ([3686a35](https://github.com/wooorm/mdast-comment-config/commit/3686a35))
+
 0.1.2 / 2015-07-12
 ==================
 
