@@ -1,4 +1,4 @@
-# mdast-comment-config [![Build Status](https://img.shields.io/travis/wooorm/mdast-comment-config.svg?style=flat)](https://travis-ci.org/wooorm/mdast-comment-config) [![Coverage Status](https://img.shields.io/coveralls/wooorm/mdast-comment-config.svg?style=flat)](https://coveralls.io/r/wooorm/mdast-comment-config?branch=master)
+# mdast-comment-config [![Build Status](https://img.shields.io/travis/wooorm/mdast-comment-config.svg)](https://travis-ci.org/wooorm/mdast-comment-config) [![Coverage Status](https://img.shields.io/codecov/c/github/wooorm/mdast-comment-config.svg)](https://codecov.io/github/wooorm/mdast-comment-config)
 
 Set [**mdast**](https://github.com/wooorm/mdast) options with comments during
 runtime.
