@@ -52,7 +52,17 @@ function attacher(mdast) {
 module.exports = attacher;
 
 },{"mdast-zone":2}],2:[function(require,module,exports){
+/**
+ * @author Titus Wormer
+ * @copyright 2015 Titus Wormer
+ * @license MIT
+ * @module mdast:zone
+ * @fileoverview HTML comments as ranges or markers in mdast.
+ */
+
 'use strict';
+
+/* eslint-env commonjs */
 
 /*
  * Dependencies.
@@ -191,14 +201,15 @@ function testFactory(settings, callback) {
      * @return {Object?}
      */
     function test(node, context) {
-        var value = node.value;
+        var value;
         var match;
         var result;
 
-        if (node.type !== 'html') {
+        if (!node || node.type !== 'html') {
             return null;
         }
 
+        value = node.value;
         match = value.match(expression);
 
         if (
@@ -245,13 +256,17 @@ function parse(tokenize, settings) {
      *
      * @return {Node}
      */
-    return function () {
+    function replacement() {
         var node = tokenize.apply(this, arguments);
 
         test(node, this);
 
         return node;
-    };
+    }
+
+    replacement.locator = tokenize.locator;
+
+    return replacement;
 }
 
 /**
