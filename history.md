@@ -2,6 +2,13 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+2.0.0-alpha.1 / 2015-12-14
+==========================
+
+*   Update dependencies for changes in mdast ([1429f78](https://github.com/wooorm/mdast-comment-config/commit/1429f78))
+*   Update eslint-env ([0572671](https://github.com/wooorm/mdast-comment-config/commit/0572671))
+*   Update dev-dependencies ([74698ba](https://github.com/wooorm/mdast-comment-config/commit/74698ba))
+
 1.0.0 / 2015-08-16
 ==================
 
