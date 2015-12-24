@@ -70,6 +70,6 @@ describe('remark-comment-config()', function () {
                 '-   Foo',
                 ''
             ].join('\n'));
-        }, /1:1-1:24: Invalid value `\?` for setting `options\.bullet`/);
+        }, /1:1-1:25: Invalid value `\?` for setting `options\.bullet`/);
     });
 });

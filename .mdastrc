@@ -4,8 +4,7 @@
     "lint",
     "./",
     "github",
-    "toc",
-    "usage"
+    "toc"
   ],
   "settings": {
     "bullet": "*"
