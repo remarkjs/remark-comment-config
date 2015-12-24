@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+2.0.0 / 2015-12-24
+==================
+
+*   Add temporary warning to `readme.md` ([1e99536](https://github.com/wooorm/remark-comment-config/commit/1e99536))
+*   Rename `mdast-comment-config` > `remark-comment-config` ([503cd4d](https://github.com/wooorm/remark-comment-config/commit/503cd4d))
 *   Update dependencies for changes in mdast ([1429f78](https://github.com/wooorm/remark-comment-config/commit/1429f78))
 
 1.0.0 / 2015-08-16
