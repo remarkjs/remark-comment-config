@@ -5,8 +5,8 @@
     "coverage/",
     "node_modules/",
     "build.js",
-    "mdast-comment-config.js",
-    "mdast-comment-config.min.js"
+    "remark-comment-config.js",
+    "remark-comment-config.min.js"
   ],
   "jsDoc": {
     "checkAnnotations": "jsdoc3",

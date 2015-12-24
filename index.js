@@ -2,8 +2,8 @@
  * @author Titus Wormer
  * @copyright 2015 Titus Wormer
  * @license MIT
- * @module mdast:comment-config
- * @fileoverview Configure mdast with comments at runtime.
+ * @module remark:comment-config
+ * @fileoverview Configure remark with comments at runtime.
  */
 
 'use strict';
@@ -32,13 +32,13 @@ function on(marker, context) {
 }
 
 /**
- * Modify mdast to read configuration from comments.
+ * Modify remark to read configuration from comments.
  *
- * @param {MDAST} mdast - Instance.
+ * @param {Remark} remark - Instance.
  */
-function attacher(mdast) {
-    mdast.use(zone({
-        'name': 'mdast',
+function attacher(remark) {
+    remark.use(zone({
+        'name': 'remark',
         'onparse': on,
         'onstringify': on
     }));

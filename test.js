@@ -2,8 +2,8 @@
  * @author Titus Wormer
  * @copyright 2015 Titus Wormer
  * @license MIT
- * @module mdast:comment-config
- * @fileoverview Test suite for `mdast-comment-config`.
+ * @module remark:comment-config
+ * @fileoverview Test suite for `remark-comment-config`.
  */
 
 'use strict';
@@ -33,15 +33,15 @@ function comments(value, options) {
  * Tests.
  */
 
-describe('mdast-comment-config()', function () {
+describe('remark-comment-config()', function () {
     it('should set parse options', function () {
         assert(comments([
-            '<!--mdast commonmark-->',
+            '<!--remark commonmark-->',
             '',
             '1)  Foo',
             ''
         ].join('\n')) === [
-            '<!--mdast commonmark-->',
+            '<!--remark commonmark-->',
             '',
             '1.  Foo',
             ''
@@ -50,12 +50,12 @@ describe('mdast-comment-config()', function () {
 
     it('should set stringification options', function () {
         assert(comments([
-            '<!--mdast bullet="*"-->',
+            '<!--remark bullet="*"-->',
             '',
             '-   Foo',
             ''
         ].join('\n')) === [
-            '<!--mdast bullet="*"-->',
+            '<!--remark bullet="*"-->',
             '',
             '*   Foo',
             ''
@@ -65,7 +65,7 @@ describe('mdast-comment-config()', function () {
     it('should throw exceptions with location information', function () {
         assert.throws(function () {
             comments([
-                '<!--mdast bullet="?"-->',
+                '<!--remark bullet="?"-->',
                 '',
                 '-   Foo',
                 ''

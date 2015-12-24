@@ -1,9 +1,9 @@
 var commentConfig = require('./index.js');
-var mdast = require('mdast').use(commentConfig);
+var remark = require('remark').use(commentConfig);
 
 // Document:
 var input = [
-    '<!--mdast commonmark bullet="*"-->',
+    '<!--remark commonmark bullet="*"-->',
     '',
     '1) Commonmark list (this is a parse setting)',
     '',
@@ -12,7 +12,7 @@ var input = [
 ].join('\n');
 
 // Process:
-var doc = mdast.process(input);
+var doc = remark.process(input);
 
 // Yields:
 console.log('markdown', doc);

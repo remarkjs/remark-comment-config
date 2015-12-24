@@ -1,19 +1,19 @@
 {
-  "name": "mdast-comment-config",
+  "name": "remark-comment-config",
   "version": "1.0.0",
-  "description": "Configure mdast with comments at runtime",
+  "description": "Configure remark with comments at runtime",
   "license": "MIT",
   "keywords": [
     "comment",
     "options",
     "config",
     "settings",
-    "mdast"
+    "remark"
   ],
   "dependencies": {
-    "wooorm/mdast-zone": "^1.0.0"
+    "wooorm/mdast-zone": "^2.0.0"
   },
-  "repository": "wooorm/mdast-comment-config",
+  "repository": "wooorm/remark-comment-config",
   "scripts": [
     "index.js"
   ]
