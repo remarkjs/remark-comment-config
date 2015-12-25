@@ -23,7 +23,7 @@ var commentConfig = require('./');
  *
  * @param {string} value - Value to test.
  * @param {Object?} options - Configuration.
- * @return {string}
+ * @return {string} - Processed `value`.
  */
 function comments(value, options) {
     return remark.use(commentConfig, options).process(value);
