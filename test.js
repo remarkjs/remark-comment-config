@@ -8,13 +8,13 @@
 
 'use strict';
 
-/* eslint-env node, mocha */
+/* eslint-env node */
 
 /*
  * Dependencies.
  */
 
-var assert = require('assert');
+var test = require('tape');
 var remark = require('remark');
 var commentConfig = require('./');
 
@@ -33,43 +33,51 @@ function comments(value, options) {
  * Tests.
  */
 
-describe('remark-comment-config()', function () {
-    it('should set parse options', function () {
-        assert(comments([
+test('remark-comment-config()', function (t) {
+    t.equal(
+        comments([
             '<!--remark commonmark-->',
             '',
             '1)  Foo',
             ''
-        ].join('\n')) === [
+        ].join('\n')),
+        [
             '<!--remark commonmark-->',
             '',
             '1.  Foo',
             ''
-        ].join('\n'));
-    });
+        ].join('\n'),
+        'should set parse options'
+    );
 
-    it('should set stringification options', function () {
-        assert(comments([
+    t.equal(
+        comments([
             '<!--remark bullet="*"-->',
             '',
             '-   Foo',
             ''
-        ].join('\n')) === [
+        ].join('\n')),
+        [
             '<!--remark bullet="*"-->',
             '',
             '*   Foo',
             ''
-        ].join('\n'));
-    });
+        ].join('\n'),
+        'should set stringification options'
+    );
 
-    it('should throw exceptions with location information', function () {
-        assert.throws(function () {
+    t.throws(
+        function () {
             comments([
                 '<!--remark bullet="?"-->',
                 '',
                 '-   Foo',
                 ''
             ].join('\n'));
-        }, /1:1-1:25: Invalid value `\?` for setting `options\.bullet`/);
-    });
+        },
+        /1:1-1:25: Invalid value `\?` for setting `options\.bullet`/,
+        'should throw exceptions with location information'
+    );
+
+    t.end();
 });
