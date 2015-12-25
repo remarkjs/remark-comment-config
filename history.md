@@ -2,6 +2,14 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+2.0.1 / 2015-12-26
+==================
+
+*   Remove distribution files from source (e4c17ec)
+*   Remove support for bower (006f926)
+*   Refactor to replace mocha with tape (b40a87d)
+*   Replace internal dependency of mdast > remark (024b714)
+
 2.0.0 / 2015-12-24
 ==================
 
