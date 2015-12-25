@@ -15,7 +15,7 @@
  */
 
 var assert = require('assert');
-var mdast = require('mdast');
+var remark = require('remark');
 var commentConfig = require('./');
 
 /**
@@ -26,7 +26,7 @@ var commentConfig = require('./');
  * @return {string}
  */
 function comments(value, options) {
-    return mdast.use(commentConfig, options).process(value);
+    return remark.use(commentConfig, options).process(value);
 }
 
 /*

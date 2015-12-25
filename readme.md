@@ -3,14 +3,6 @@
 Set [**remark**](https://github.com/wooorm/remark) options with comments during
 runtime.
 
-> :warning: **mdast is currently being renamed to remark** :warning:
-> 
-> This means all plug-ins and relating projects change too, causing many
-> changes across the ecosystem. Expect the dust to settle in roughly a day.
-> 
-> See this project at the previous stable commit
-> [10b0607](https://github.com/wooorm/remark-github/commit/10b0607).
-
 ## Installation
 
 [npm](https://docs.npmjs.com/cli/install)
