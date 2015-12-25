@@ -1,7 +1,5 @@
-build/
 components/
 coverage/
-build.js
 example.js
 remark-comment-config.js
 remark-comment-config.min.js
