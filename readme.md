@@ -17,12 +17,6 @@ npm install remark-comment-config
 component install wooorm/remark-comment-config
 ```
 
-[Bower](http://bower.io/#install-packages)
-
-```bash
-bower install remark-comment-config
-```
-
 [Duo](http://duojs.org/#getting-started)
 
 ```javascript
