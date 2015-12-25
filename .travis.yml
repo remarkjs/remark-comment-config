@@ -6,3 +6,12 @@ node_js:
 - iojs
 sudo: false
 after_script: npm install codecov.io && cat ./coverage/lcov.info | codecov
+deploy:
+  provider: releases
+  api_key:
+    secure: NPY9xkGBFI81Cipj90ncffU/e6yBgzV9NUhRNAYsXol7rH7RaOdYXrMTwrDtrp8UUY8iKuFDED0u6t/+BQ3heeGnglLY7/7eCwMff23zXNVdy4sVO2RqTmjCqGR43Im3EGLXmWQNH7D8FPbqvlPeCXYRvqYF1m12TvX+V1xIfdM=
+  file:
+    - "remark-comment-config.js"
+    - "remark-comment-config.min.js"
+  on:
+    tags: true

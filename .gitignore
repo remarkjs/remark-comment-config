@@ -3,3 +3,5 @@
 components/
 coverage/
 node_modules/
+remark-comment-config.js
+remark-comment-config.min.js

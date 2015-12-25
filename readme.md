@@ -11,27 +11,9 @@ runtime.
 npm install remark-comment-config
 ```
 
-[Component.js](https://github.com/componentjs/component)
-
-```bash
-component install wooorm/remark-comment-config
-```
-
-[Duo](http://duojs.org/#getting-started)
-
-```javascript
-var commentConfig = require('wooorm/remark-comment-config');
-```
-
-UMD: globals, AMD, and CommonJS ([uncompressed](remark-comment-config.js) and [compressed](remark-comment-config.min.js)):
-
-```html
-<script src="path/to/remark.js"></script>
-<script src="path/to/remark-comment-config.js"></script>
-<script>
-  remark.use(remarkCommentConfig);
-</script>
-```
+**remark-comment-config** is also available for [duo](http://duojs.org/#getting-started),
+and as an AMD, CommonJS, and globals module, [uncompressed and
+compressed](https://github.com/wooorm/remark-comment-config/releases).
 
 ## Table of Contents
 
