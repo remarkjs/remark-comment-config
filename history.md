@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+2.0.2 / 2015-12-26
+==================
+
+*   Regenerate markdown ([c7bf398](https://github.com/wooorm/remark-comment-config/commit/c7bf398))
+
 2.0.1 / 2015-12-26
 ==================
 
