@@ -5,10 +5,10 @@
 2.0.1 / 2015-12-26
 ==================
 
-*   Remove distribution files from source (e4c17ec)
-*   Remove support for bower (006f926)
-*   Refactor to replace mocha with tape (b40a87d)
-*   Replace internal dependency of mdast > remark (024b714)
+*   Remove distribution files from source ([e4c17ec](https://github.com/wooorm/remark-comment-config/commit/e4c17ec))
+*   Remove support for bower ([006f926](https://github.com/wooorm/remark-comment-config/commit/006f926))
+*   Refactor to replace mocha with tape ([b40a87d](https://github.com/wooorm/remark-comment-config/commit/b40a87d))
+*   Replace internal dependency of mdast > remark ([024b714](https://github.com/wooorm/remark-comment-config/commit/024b714))
 
 2.0.0 / 2015-12-24
 ==================
