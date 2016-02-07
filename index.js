@@ -62,7 +62,7 @@ function attacher(remark) {
 
     parser.blockTokenizers.html = factory(parser.blockTokenizers.html);
     parser.inlineTokenizers.tag = factory(parser.inlineTokenizers.tag);
-    compiler.html = factory(compiler.html);
+    compiler.visitors.html = factory(compiler.visitors.html);
 }
 
 /*
