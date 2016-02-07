@@ -17,7 +17,11 @@
     "type": "git",
     "url": "https://github.com/wooorm/remark-comment-config.git"
   },
-  "author": "Titus Wormer <tituswormer@gmail.com>",
+  "bugs": "https://github.com/wooorm/remark-comment-config/issues",
+  "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
+  "contributors": [
+    "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
+  ],
   "files": [
     "index.js"
   ],
