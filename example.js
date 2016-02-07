@@ -1,18 +1,16 @@
+// Dependencies:
 var commentConfig = require('./index.js');
-var remark = require('remark').use(commentConfig);
+var remark = require('remark');
 
-// Document:
-var input = [
+// Process:
+var doc = remark.use(commentConfig).process([
     '<!--remark commonmark bullet="*"-->',
     '',
     '1) Commonmark list (this is a parse setting)',
     '',
     '- List item (this is a stringification setting)',
     ''
-].join('\n');
-
-// Process:
-var doc = remark.process(input);
+].join('\n'));
 
 // Yields:
 console.log('markdown', doc);

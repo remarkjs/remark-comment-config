@@ -1,56 +1,38 @@
-# remark-comment-config [![Build Status](https://img.shields.io/travis/wooorm/remark-comment-config.svg)](https://travis-ci.org/wooorm/remark-comment-config) [![Coverage Status](https://img.shields.io/codecov/c/github/wooorm/remark-comment-config.svg)](https://codecov.io/github/wooorm/remark-comment-config)
+# remark-comment-config [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
-Set [**remark**](https://github.com/wooorm/remark) options with comments during
-runtime.
+Set [**remark**][remark] options with comments during runtime.
 
 ## Installation
 
-[npm](https://docs.npmjs.com/cli/install)
+[npm][npm-install]:
 
 ```bash
 npm install remark-comment-config
 ```
 
 **remark-comment-config** is also available as an AMD, CommonJS, and
-globals module, [uncompressed and
-compressed](https://github.com/wooorm/remark-comment-config/releases).
-
-## Table of Contents
-
-*   [Usage](#usage)
-
-*   [CLI](#cli)
-
-*   [API](#api)
-
-    *   [remark.use(commentConfig)](#remarkusecommentconfig)
-
-*   [License](#license)
+globals module, [uncompressed and compressed][releases].
 
 ## Usage
 
+Dependencies:
+
 ```javascript
 var commentConfig = require('remark-comment-config');
-var remark = require('remark').use(commentConfig);
+var remark = require('remark');
 ```
 
-Document:
+Process:
 
 ```javascript
-var input = [
+var doc = remark.use(commentConfig).process([
     '<!--remark commonmark bullet="*"-->',
     '',
     '1) Commonmark list (this is a parse setting)',
     '',
     '- List item (this is a stringification setting)',
     ''
-].join('\n');
-```
-
-Process:
-
-```javascript
-var doc = remark.process(input);
+].join('\n'));
 ```
 
 Yields:
@@ -63,15 +45,9 @@ Yields:
 *   List item (this is a stringification setting)
 ```
 
-## CLI
-
-```bash
-remark --use comment-config
-```
-
 ## API
 
-### [remark](https://github.com/wooorm/remark#api).[use](https://github.com/wooorm/remark#remarkuseplugin-options)(commentConfig)
+### `remark.use(commentConfig)`
 
 Parses comments, such as `<!--remark foo="bar" baz-->`, and passes the
 “attributes” as [settings](https://github.com/wooorm/remark#remarkprocessvalue-options-done)
@@ -80,18 +56,26 @@ to **remark**.
 Just like [**remark-yaml-config**](https://github.com/wooorm/remark-yaml-config),
 but comments are invisible when rendering to HTML, such as on GitHub.
 
-**Signatures**
-
-*   `remark = remark.use(commentConfig, options?)`.
-
-**Parameters**
-
-*   `commentConfig` — This plugin.
-
-**Returns**
-
-`Object`, see [`remark.use(plugin)`](https://github.com/wooorm/remark#remarkuseplugin-options).
-
 ## License
 
-[MIT](LICENSE) © [Titus Wormer](http://wooorm.com)
+[MIT][license] © [Titus Wormer][author]
+
+<!-- Definitions -->
+
+[travis-badge]: https://img.shields.io/travis/wooorm/remark-comment-config/master.svg
+
+[travis]: https://travis-ci.org/wooorm/remark-comment-config
+
+[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-comment-config.svg
+
+[codecov]: https://codecov.io/github/wooorm/remark-comment-config
+
+[npm-install]: https://docs.npmjs.com/cli/install
+
+[releases]: https://github.com/wooorm/remark-comment-config/releases
+
+[license]: LICENSE
+
+[author]: http://wooorm.com
+
+[remark]: https://github.com/wooorm/remark
