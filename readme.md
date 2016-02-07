@@ -11,8 +11,8 @@ runtime.
 npm install remark-comment-config
 ```
 
-**remark-comment-config** is also available for [duo](http://duojs.org/#getting-started),
-and as an AMD, CommonJS, and globals module, [uncompressed and
+**remark-comment-config** is also available as an AMD, CommonJS, and
+globals module, [uncompressed and
 compressed](https://github.com/wooorm/remark-comment-config/releases).
 
 ## Table of Contents
