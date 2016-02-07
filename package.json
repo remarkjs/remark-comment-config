@@ -22,14 +22,14 @@
     "index.js"
   ],
   "devDependencies": {
-    "browserify": "^12.0.0",
+    "browserify": "^13.0.0",
     "eslint": "^1.1.0",
     "esmangle": "^1.0.0",
     "istanbul": "^0.4.0",
     "jscs": "^2.0.0",
     "jscs-jsdoc": "^1.0.0",
     "remark": "^3.0.0",
-    "remark-github": "^2.0.0",
+    "remark-github": "^4.0.1",
     "remark-lint": "^2.0.0",
     "remark-toc": "^2.0.0",
     "remark-usage": "^2.0.0",
