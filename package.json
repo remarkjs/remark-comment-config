@@ -11,7 +11,7 @@
     "remark"
   ],
   "dependencies": {
-    "mdast-zone": "^2.0.0"
+    "mdast-comment-marker": "^1.0.0"
   },
   "repository": {
     "type": "git",

@@ -14,21 +14,41 @@
  * Dependencies.
  */
 
-var zone = require('mdast-zone');
+var commentMarker = require('mdast-comment-marker');
 
 /**
  * Wrapper factory.
  *
- * @param {Marker} marker - Marker object.
- * @param {Parser|Compiler} context - Context to set
- *   configuration on.
+ * @param {Function} original - Spied on function.
+ * @return {Function} - Spy.
  */
-function on(marker, context) {
-    try {
-        context.setOptions(marker.parameters);
-    } catch (exception) {
-        context.file.fail(exception.message, marker.node);
+function factory(original) {
+    /**
+     * Replacer for tokeniser or visitor.
+     *
+     * @param {Node|Function} node - Node, when visitor,
+     *   or `eat`.
+     * @return {*} - Result of the spied on function.
+     */
+    function replacement(node) {
+        var self = this;
+        var result = original.apply(self, arguments);
+        var marker = commentMarker(result && result.type ? result : node);
+
+        if (marker && marker.name === 'remark') {
+            try {
+                self.setOptions(marker.parameters);
+            } catch (exception) {
+                self.file.fail(exception.message, marker.node);
+            }
+        }
+
+        return result;
     }
+
+    replacement.locator = original.locator;
+
+    return replacement;
 }
 
 /**
@@ -37,11 +57,12 @@ function on(marker, context) {
  * @param {Remark} remark - Instance.
  */
 function attacher(remark) {
-    remark.use(zone({
-        'name': 'remark',
-        'onparse': on,
-        'onstringify': on
-    }));
+    var parser = remark.Parser.prototype;
+    var compiler = remark.Compiler.prototype;
+
+    parser.blockTokenizers.html = factory(parser.blockTokenizers.html);
+    parser.inlineTokenizers.tag = factory(parser.inlineTokenizers.tag);
+    compiler.html = factory(compiler.html);
 }
 
 /*
