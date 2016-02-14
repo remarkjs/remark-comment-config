@@ -2,6 +2,13 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+3.0.0 / 2016-02-14
+==================
+
+*   Update for changes in remark@4.0.0 ([`062da43`](https://github.com/wooorm/remark-comment-config/commit/062da43))
+*   Update internal interface ([`c050aef`](https://github.com/wooorm/remark-comment-config/commit/c050aef))
+*   Remove Duo support ([`150b6c2`](https://github.com/wooorm/remark-comment-config/commit/150b6c2))
+
 2.0.2 / 2015-12-26
 ==================
 
