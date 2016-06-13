@@ -1,7 +1,7 @@
 {
   "name": "remark-comment-config",
   "version": "3.0.0",
-  "description": "Configure remark with comments at runtime",
+  "description": "Configure remark with comments",
   "license": "MIT",
   "keywords": [
     "comment",

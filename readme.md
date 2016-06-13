@@ -1,13 +1,13 @@
-# remark-comment-config [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+# remark-comment-config [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
 
-Set [**remark**][remark] options with comments during runtime.
+Configure [**remark**][remark] with comments.
 
 ## Installation
 
-[npm][npm-install]:
+[npm][]:
 
 ```bash
-npm install remark-comment-config
+npm install remark-parse
 ```
 
 **remark-comment-config** is also available as an AMD, CommonJS, and
@@ -50,11 +50,10 @@ Yields:
 ### `remark.use(commentConfig)`
 
 Parses comments, such as `<!--remark foo="bar" baz-->`, and passes the
-“attributes” as [settings](https://github.com/wooorm/remark#remarkprocessvalue-options-done)
-to **remark**.
+“attributes” as [parse][parse-settings] and [stringify][stringify-settings].
 
-Just like [**remark-yaml-config**](https://github.com/wooorm/remark-yaml-config),
-but comments are invisible when rendering to HTML, such as on GitHub.
+Just like [**remark-yaml-config**][remark-yaml-config], but comments are
+invisible when rendering to HTML, such as on GitHub.
 
 ## License
 
@@ -62,15 +61,17 @@ but comments are invisible when rendering to HTML, such as on GitHub.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/remark-comment-config/master.svg
+[build-badge]: https://img.shields.io/travis/wooorm/remark-comment-config.svg
 
-[travis]: https://travis-ci.org/wooorm/remark-comment-config
+[build-status]: https://travis-ci.org/wooorm/remark-comment-config
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-comment-config.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-comment-config.svg
 
-[codecov]: https://codecov.io/github/wooorm/remark-comment-config
+[coverage-status]: https://codecov.io/github/wooorm/remark-comment-config
 
-[npm-install]: https://docs.npmjs.com/cli/install
+[chat-badge]: https://img.shields.io/gitter/room/wooorm/remark.svg
+
+[chat]: https://gitter.im/wooorm/remark
 
 [releases]: https://github.com/wooorm/remark-comment-config/releases
 
@@ -78,4 +79,12 @@ but comments are invisible when rendering to HTML, such as on GitHub.
 
 [author]: http://wooorm.com
 
+[npm]: https://docs.npmjs.com/cli/install
+
 [remark]: https://github.com/wooorm/remark
+
+[parse-settings]: https://github.com/wooorm/remark/blob/master/packages/remark-parse/readme.md#options
+
+[stringify-settings]: https://github.com/wooorm/remark/blob/master/packages/remark-stringify/readme.md#options
+
+[remark-yaml-config]: https://github.com/wooorm/remark-yaml-config

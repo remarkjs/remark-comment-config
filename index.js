@@ -3,7 +3,7 @@
  * @copyright 2015 Titus Wormer
  * @license MIT
  * @module remark:comment-config
- * @fileoverview Configure remark with comments at runtime.
+ * @fileoverview Configure remark with comments.
  */
 
 'use strict';
