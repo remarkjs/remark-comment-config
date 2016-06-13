@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+4.0.0 / 2016-06-13
+==================
+
+*   Update for remark@5.0.0 ([`a3d015b`](https://github.com/wooorm/remark-comment-config/commit/a3d015b))
+
 3.0.0 / 2016-02-14
 ==================
 
