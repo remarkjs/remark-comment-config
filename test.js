@@ -26,7 +26,7 @@ var commentConfig = require('./');
  * @return {string} - Processed `value`.
  */
 function comments(value, options) {
-    return remark.use(commentConfig, options).process(value);
+    return remark().use(commentConfig, options).process(value).toString();
 }
 
 /*

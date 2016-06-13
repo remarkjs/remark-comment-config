@@ -3,7 +3,7 @@ var commentConfig = require('./index.js');
 var remark = require('remark');
 
 // Process:
-var doc = remark.use(commentConfig).process([
+var file = remark().use(commentConfig).process([
     '<!--remark commonmark bullet="*"-->',
     '',
     '1) Commonmark list (this is a parse setting)',
@@ -13,4 +13,4 @@ var doc = remark.use(commentConfig).process([
 ].join('\n'));
 
 // Yields:
-console.log('markdown', doc);
+console.log('markdown', String(file));

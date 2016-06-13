@@ -25,7 +25,7 @@ var remark = require('remark');
 Process:
 
 ```javascript
-var doc = remark.use(commentConfig).process([
+var file = remark().use(commentConfig).process([
     '<!--remark commonmark bullet="*"-->',
     '',
     '1) Commonmark list (this is a parse setting)',

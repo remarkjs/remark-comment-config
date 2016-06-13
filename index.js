@@ -61,7 +61,7 @@ function attacher(remark) {
     var compiler = remark.Compiler.prototype;
 
     parser.blockTokenizers.html = factory(parser.blockTokenizers.html);
-    parser.inlineTokenizers.tag = factory(parser.inlineTokenizers.tag);
+    parser.inlineTokenizers.html = factory(parser.inlineTokenizers.html);
     compiler.visitors.html = factory(compiler.visitors.html);
 }
 
