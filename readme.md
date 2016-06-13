@@ -7,7 +7,7 @@ Configure [**remark**][remark] with comments.
 [npm][]:
 
 ```bash
-npm install remark-parse
+npm install remark-comment-config
 ```
 
 **remark-comment-config** is also available as an AMD, CommonJS, and
