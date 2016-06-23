@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+4.0.1 / 2016-06-23
+==================
+
+*   Fix error when without parser / compiler ([`966e341`](https://github.com/wooorm/remark-comment-config/commit/966e341))
+
 4.0.0 / 2016-06-13
 ==================
 
