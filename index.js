@@ -54,15 +54,26 @@ function factory(original) {
 /**
  * Modify remark to read configuration from comments.
  *
- * @param {Remark} remark - Instance.
+ * @param {Unified} processor - Instance.
  */
-function attacher(remark) {
-    var parser = remark.Parser.prototype;
-    var compiler = remark.Compiler.prototype;
+function attacher(processor) {
+    var Parser = processor.Parser;
+    var Compiler = processor.Compiler;
+    var block = Parser && Parser.prototype.blockTokenizers;
+    var inline = Parser && Parser.prototype.inlineTokenizers;
+    var compiler = Compiler && Compiler.prototype.visitors;
 
-    parser.blockTokenizers.html = factory(parser.blockTokenizers.html);
-    parser.inlineTokenizers.html = factory(parser.inlineTokenizers.html);
-    compiler.visitors.html = factory(compiler.visitors.html);
+    if (block) {
+        block.html = factory(block.html);
+    }
+
+    if (block) {
+        inline.html = factory(inline.html);
+    }
+
+    if (compiler && compiler.html) {
+        compiler.html = factory(compiler.html);
+    }
 }
 
 /*
