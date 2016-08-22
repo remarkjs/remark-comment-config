@@ -10,9 +10,6 @@ Configure [**remark**][remark] with comments.
 npm install remark-comment-config
 ```
 
-**remark-comment-config** is also available as an AMD, CommonJS, and
-globals module, [uncompressed and compressed][releases].
-
 ## Usage
 
 Dependencies:
@@ -47,7 +44,7 @@ Yields:
 
 ## API
 
-### `remark.use(commentConfig)`
+### `remark().use(commentConfig)`
 
 Parses comments, such as `<!--remark foo="bar" baz-->`, and passes the
 “attributes” as [parse][parse-settings] and [stringify][stringify-settings].
@@ -72,8 +69,6 @@ invisible when rendering to HTML, such as on GitHub.
 [chat-badge]: https://img.shields.io/gitter/room/wooorm/remark.svg
 
 [chat]: https://gitter.im/wooorm/remark
-
-[releases]: https://github.com/wooorm/remark-comment-config/releases
 
 [license]: LICENSE
 
