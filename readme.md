@@ -12,16 +12,10 @@ npm install remark-comment-config
 
 ## Usage
 
-Dependencies:
-
 ```javascript
 var commentConfig = require('remark-comment-config');
 var remark = require('remark');
-```
 
-Process:
-
-```javascript
 var file = remark().use(commentConfig).process([
     '<!--remark commonmark bullet="*"-->',
     '',
@@ -30,6 +24,8 @@ var file = remark().use(commentConfig).process([
     '- List item (this is a stringification setting)',
     ''
 ].join('\n'));
+
+console.log(String(file));
 ```
 
 Yields:
