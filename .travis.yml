@@ -1,9 +1,8 @@
 language: node_js
 node_js:
 - '4.0'
-- '5.0'
-- '6.0'
-after_success: bash <(curl -s https://codecov.io/bash)
+- '7.0'
+after_script: bash <(curl -s https://codecov.io/bash)
 deploy:
   - provider: npm
     email: tituswormer@gmail.com
@@ -11,7 +10,7 @@ deploy:
       secure: ZE1NjurRchMIS2Zr/dxp0Y7FBUPbDIOGhSxWoAuhW9yrp6GE4Pom3j0MgrCAs+xHnuftQ/8uDVXkna1aD1t1dfdr7w8rrAmFd/j/aX1DMhsaXECxPJxrZssYaXei7ohFArMVnMBlIjLGF0Q3wDWj7XAA0hitVAtZO9+DxrGkKMw=
     on:
       tags: true
-      node: '5.0'
+      node: '4.0'
   - provider: releases
     api_key:
       secure: NPY9xkGBFI81Cipj90ncffU/e6yBgzV9NUhRNAYsXol7rH7RaOdYXrMTwrDtrp8UUY8iKuFDED0u6t/+BQ3heeGnglLY7/7eCwMff23zXNVdy4sVO2RqTmjCqGR43Im3EGLXmWQNH7D8FPbqvlPeCXYRvqYF1m12TvX+V1xIfdM=
@@ -20,4 +19,4 @@ deploy:
       - "remark-comment-config.min.js"
     on:
       tags: true
-      node: '6.0'
+      node: '7.0'
