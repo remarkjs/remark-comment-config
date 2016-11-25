@@ -1,22 +1,10 @@
-/**
- * @author Titus Wormer
- * @copyright 2015 Titus Wormer
- * @license MIT
- * @module remark:comment-config
- * @fileoverview Configure remark with comments.
- */
-
 'use strict';
 
-/* Dependencies. */
 var commentMarker = require('mdast-comment-marker');
 
-/* Expose. */
 module.exports = commentconfig;
 
-/**
- * Modify `processor` to read configuration from comments.
- */
+/* Modify `processor` to read configuration from comments. */
 function commentconfig(processor) {
   var Parser = processor.Parser;
   var Compiler = processor.Compiler;
@@ -37,19 +25,13 @@ function commentconfig(processor) {
   }
 }
 
-/** Wrapper factory. */
+/* Wrapper factory. */
 function factory(original) {
   replacement.locator = original.locator;
 
   return replacement;
 
-  /**
-   * Replacer for tokeniser or visitor.
-   *
-   * @param {Node|Function} node - Node, when visitor,
-   *   or `eat`.
-   * @return {*} - Result of the spied on function.
-   */
+  /* Replacer for tokeniser or visitor. */
   function replacement(node) {
     var self = this;
     var result = original.apply(self, arguments);

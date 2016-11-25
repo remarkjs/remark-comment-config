@@ -1,21 +1,11 @@
-/**
- * @author Titus Wormer
- * @copyright 2015 Titus Wormer
- * @license MIT
- * @module remark:comment-config
- * @fileoverview Test suite for `remark-comment-config`.
- */
-
 'use strict';
 
-/* Dependencies. */
 var test = require('tape');
 var unified = require('unified');
 var remark = require('remark');
 var html = require('remark-html');
 var commentConfig = require('./');
 
-/* Tests. */
 test('remark-comment-config()', function (t) {
   t.equal(
     comments([
@@ -89,13 +79,6 @@ test('remark-comment-config()', function (t) {
   t.end();
 });
 
-/**
- * Shortcut to process.
- *
- * @param {string} value - Value to test.
- * @param {Object?} options - Configuration.
- * @return {string} - Processed `value`.
- */
 function comments(value, options) {
   return remark().use(commentConfig, options).process(value).toString();
 }
