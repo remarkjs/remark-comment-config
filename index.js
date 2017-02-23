@@ -5,9 +5,9 @@ var commentMarker = require('mdast-comment-marker');
 module.exports = commentconfig;
 
 /* Modify `processor` to read configuration from comments. */
-function commentconfig(processor) {
-  var Parser = processor.Parser;
-  var Compiler = processor.Compiler;
+function commentconfig() {
+  var Parser = this.Parser;
+  var Compiler = this.Compiler;
   var block = Parser && Parser.prototype.blockTokenizers;
   var inline = Parser && Parser.prototype.inlineTokenizers;
   var compiler = Compiler && Compiler.prototype.visitors;

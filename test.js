@@ -54,13 +54,13 @@ test('remark-comment-config()', function (t) {
 
   t.doesNotThrow(
     function () {
-      unified().use(commentConfig);
+      unified().use(commentConfig).freeze();
     },
     'should not throw without parser / compiler'
   );
 
   t.equal(
-    remark().use(html).use(commentConfig).process([
+    remark().use(html).use(commentConfig).processSync([
       '<!--remark commonmark-->',
       '',
       '1)  Foo',
@@ -80,5 +80,5 @@ test('remark-comment-config()', function (t) {
 });
 
 function comments(value, options) {
-  return remark().use(commentConfig, options).process(value).toString();
+  return remark().use(commentConfig, options).processSync(value).toString();
 }
