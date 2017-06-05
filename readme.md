@@ -12,23 +12,32 @@ npm install remark-comment-config
 
 ## Usage
 
-```javascript
-var commentConfig = require('remark-comment-config');
-var remark = require('remark');
+Say we have the following file, `example.md`:
 
-var file = remark().use(commentConfig).process([
-    '<!--remark commonmark bullet="*"-->',
-    '',
-    '1) Commonmark list (this is a parse setting)',
-    '',
-    '- List item (this is a stringification setting)',
-    ''
-].join('\n'));
+```markdown
+<!--remark commonmark bullet="*"-->
 
-console.log(String(file));
+1) Commonmark list (this is a parse setting)
+
+- List item (this is a stringification setting)
 ```
 
-Yields:
+And our script, `example.js`, looks as follows:
+
+```javascript
+var vfile = require('to-vfile');
+var remark = require('remark');
+var commentConfig = require('remark-comment-config');
+
+remark()
+  .use(commentConfig)
+  .process(vfile.readSync('example.md'), function (err, file) {
+    if (err) throw err;
+    console.log(String(file));
+  });
+```
+
+Now, running `node example` yields:
 
 ```markdown
 <!--remark commonmark bullet="*"-->
