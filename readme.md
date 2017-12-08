@@ -57,6 +57,13 @@ Parses comments, such as `<!--remark foo="bar" baz-->`, and passes the
 Just like [**remark-yaml-config**][remark-yaml-config], but comments are
 invisible when rendering to HTML, such as on GitHub.
 
+## Contribute
+
+See [`contribute.md` in `remarkjs/remarkj`][contribute] for ways to get started.
+
+This organisation has a [Code of Conduct][coc].  By interacting with this
+repository, organisation, or community you agree to abide by its terms.
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
@@ -88,3 +95,7 @@ invisible when rendering to HTML, such as on GitHub.
 [stringify-settings]: https://github.com/remarkjs/remark/blob/master/packages/remark-stringify/readme.md#options
 
 [remark-yaml-config]: https://github.com/remarkjs/remark-yaml-config
+
+[contribute]: https://github.com/remarkjs/remark/blob/master/contributing.md
+
+[coc]: https://github.com/remarkjs/remark/blob/master/code-of-conduct.md
