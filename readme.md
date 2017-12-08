@@ -63,17 +63,17 @@ invisible when rendering to HTML, such as on GitHub.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/wooorm/remark-comment-config.svg
+[build-badge]: https://img.shields.io/travis/remarkjs/remark-comment-config.svg
 
-[build-status]: https://travis-ci.org/wooorm/remark-comment-config
+[build-status]: https://travis-ci.org/remarkjs/remark-comment-config
 
-[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/remark-comment-config.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/remarkjs/remark-comment-config.svg
 
-[coverage-status]: https://codecov.io/github/wooorm/remark-comment-config
+[coverage-status]: https://codecov.io/github/remarkjs/remark-comment-config
 
-[chat-badge]: https://img.shields.io/gitter/room/wooorm/remark.svg
+[chat-badge]: https://img.shields.io/gitter/room/remarkjs/Lobby.svg
 
-[chat]: https://gitter.im/wooorm/remark
+[chat]: https://gitter.im/remarkjs/Lobby
 
 [license]: LICENSE
 
@@ -81,10 +81,10 @@ invisible when rendering to HTML, such as on GitHub.
 
 [npm]: https://docs.npmjs.com/cli/install
 
-[remark]: https://github.com/wooorm/remark
+[remark]: https://github.com/remarkjs/remark
 
-[parse-settings]: https://github.com/wooorm/remark/blob/master/packages/remark-parse/readme.md#options
+[parse-settings]: https://github.com/remarkjs/remark/blob/master/packages/remark-parse/readme.md#options
 
-[stringify-settings]: https://github.com/wooorm/remark/blob/master/packages/remark-stringify/readme.md#options
+[stringify-settings]: https://github.com/remarkjs/remark/blob/master/packages/remark-stringify/readme.md#options
 
-[remark-yaml-config]: https://github.com/wooorm/remark-yaml-config
+[remark-yaml-config]: https://github.com/remarkjs/remark-yaml-config

@@ -10,8 +10,8 @@
     "settings",
     "remark"
   ],
-  "repository": "https://github.com/wooorm/remark-comment-config",
-  "bugs": "https://github.com/wooorm/remark-comment-config/issues",
+  "repository": "remarkjs/remark-comment-config",
+  "bugs": "https://github.com/remarkjs/remark-comment-config/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
