@@ -28,7 +28,7 @@
     "nyc": "^11.0.0",
     "remark": "^8.0.0",
     "remark-cli": "^4.0.0",
-    "remark-html": "^6.0.0",
+    "remark-html": "^7.0.0",
     "remark-preset-wooorm": "^3.0.0",
     "tape": "^4.4.0",
     "unified": "^6.0.0",
