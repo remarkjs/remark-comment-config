@@ -19,7 +19,7 @@ Say we have the following file, `example.md`:
 
 1) Commonmark list (this is a parse setting)
 
-- List item (this is a stringification setting)
+- List item (this is a stringify setting)
 ```
 
 And our script, `example.js`, looks as follows:
@@ -44,7 +44,7 @@ Now, running `node example` yields:
 
 1.  Commonmark list (this is a parse setting)
 
-*   List item (this is a stringification setting)
+*   List item (this is a stringify setting)
 ```
 
 ## API
@@ -54,12 +54,20 @@ Now, running `node example` yields:
 Parses comments, such as `<!--remark foo="bar" baz-->`, and passes the
 “attributes” as [parse][parse-settings] and [stringify][stringify-settings].
 
-Just like [**remark-yaml-config**][remark-yaml-config], but comments are
-invisible when rendering to HTML, such as on GitHub.
+This is essentially the same as [`remark-yaml-config`][remark-yaml-config],
+except that comments are invisible when rendering to HTML (such as on GitHub).
+
+## Related
+
+*   [`remark-yaml-config`][remark-yaml-config]
+    — Configure remark from YAML
+*   [`remark-message-control`][remark-message-control]
+    — Configure messages with comments
 
 ## Contribute
 
-See [`contribute.md` in `remarkjs/remarkj`][contribute] for ways to get started.
+See [`contribute.md` in `remarkjs/remarkjs`][contribute] for ways to get
+started.
 
 This organisation has a [Code of Conduct][coc].  By interacting with this
 repository, organisation, or community you agree to abide by its terms.
@@ -95,6 +103,8 @@ repository, organisation, or community you agree to abide by its terms.
 [stringify-settings]: https://github.com/remarkjs/remark/blob/master/packages/remark-stringify/readme.md#options
 
 [remark-yaml-config]: https://github.com/remarkjs/remark-yaml-config
+
+[remark-message-control]: https://github.com/remarkjs/remark-message-control
 
 [contribute]: https://github.com/remarkjs/remark/blob/master/contributing.md
 
