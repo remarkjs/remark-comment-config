@@ -2,11 +2,20 @@
 
 var test = require('tape');
 var unified = require('unified');
-var remark = require('remark');
-var html = require('remark-html');
+var parse = require('remark-parse');
+var stringify = require('remark-stringify');
+var remark2rehype = require('remark-rehype');
+var html = require('rehype-stringify');
 var commentConfig = require('./');
 
 test('remark-comment-config()', function (t) {
+  t.doesNotThrow(
+    function () {
+      unified().use(commentConfig).freeze();
+    },
+    'should not throw if without parser or compiler'
+  );
+
   t.equal(
     comments([
       '<!--remark commonmark-->',
@@ -60,18 +69,22 @@ test('remark-comment-config()', function (t) {
   );
 
   t.equal(
-    remark().use(html).use(commentConfig).processSync([
-      '<!--remark commonmark-->',
-      '',
-      '1)  Foo',
-      ''
-    ].join('\n')).toString(),
+    unified()
+      .use(parse)
+      .use(remark2rehype)
+      .use(html)
+      .use(commentConfig)
+      .processSync([
+        '<!--remark commonmark-->',
+        '',
+        '1)  Foo',
+        ''
+      ].join('\n'))
+      .toString(),
     [
-      '<!--remark commonmark-->',
       '<ol>',
       '<li>Foo</li>',
-      '</ol>',
-      ''
+      '</ol>'
     ].join('\n'),
     'should ignore missing compilers'
   );
@@ -80,5 +93,10 @@ test('remark-comment-config()', function (t) {
 });
 
 function comments(value, options) {
-  return remark().use(commentConfig, options).processSync(value).toString();
+  return unified()
+    .use(parse)
+    .use(stringify)
+    .use(commentConfig, options)
+    .processSync(value)
+    .toString();
 }
