@@ -6,11 +6,11 @@ module.exports = commentconfig;
 
 /* Modify `processor` to read configuration from comments. */
 function commentconfig() {
-  var Parser = this.Parser;
+  var proto = this.Parser && this.Parser.prototype;
   var Compiler = this.Compiler;
-  var block = Parser && Parser.prototype.blockTokenizers;
-  var inline = Parser && Parser.prototype.inlineTokenizers;
-  var compiler = Compiler && Compiler.prototype.visitors;
+  var block = proto && proto.blockTokenizers;
+  var inline = proto && proto.inlineTokenizers;
+  var compiler = Compiler && Compiler.prototype && Compiler.prototype.visitors;
 
   if (block && block.html) {
     block.html = factory(block.html);
