@@ -24,7 +24,6 @@
   ],
   "devDependencies": {
     "browserify": "^16.0.0",
-    "esmangle": "^1.0.0",
     "nyc": "^12.0.0",
     "rehype-stringify": "^4.0.0",
     "remark-cli": "^5.0.0",
@@ -33,13 +32,14 @@
     "remark-rehype": "^3.0.0",
     "remark-stringify": "^5.0.0",
     "tape": "^4.4.0",
+    "tinyify": "^2.4.3",
     "unified": "^7.0.0",
     "xo": "^0.22.0"
   },
   "scripts": {
     "build-md": "remark . -qfo",
-    "build-bundle": "browserify index.js -s remarkCommentConfig > remark-comment-config.js",
-    "build-mangle": "esmangle remark-comment-config.js > remark-comment-config.min.js",
+    "build-bundle": "browserify . -s remarkCommentConfig > remark-comment-config.js",
+    "build-mangle": "browserify . -s remarkCommentConfig -p tinyify > remark-comment-config.min.js",
     "build": "npm run build-md && npm run build-bundle && npm run build-mangle",
     "lint": "xo",
     "test-api": "node test",
