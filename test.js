@@ -6,7 +6,7 @@ var parse = require('remark-parse');
 var stringify = require('remark-stringify');
 var remark2rehype = require('remark-rehype');
 var html = require('rehype-stringify');
-var commentConfig = require('./');
+var commentConfig = require('.');
 
 test('remark-comment-config()', function (t) {
   t.doesNotThrow(
