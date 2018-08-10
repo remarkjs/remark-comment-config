@@ -66,7 +66,7 @@ except that comments are invisible when rendering to HTML (such as on GitHub).
 
 ## Contribute
 
-See [`contribute.md` in `remarkjs/remarkjs`][contribute] for ways to get
+See [`contributing.md` in `remarkjs/remark`][contributing] for ways to get
 started.
 
 This organisation has a [Code of Conduct][coc].  By interacting with this
@@ -106,6 +106,6 @@ repository, organisation, or community you agree to abide by its terms.
 
 [remark-message-control]: https://github.com/remarkjs/remark-message-control
 
-[contribute]: https://github.com/remarkjs/remark/blob/master/contributing.md
+[contributing]: https://github.com/remarkjs/remark/blob/master/contributing.md
 
 [coc]: https://github.com/remarkjs/remark/blob/master/code-of-conduct.md
