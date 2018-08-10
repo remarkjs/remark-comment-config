@@ -1,50 +1,50 @@
-'use strict';
+'use strict'
 
-var commentMarker = require('mdast-comment-marker');
+var commentMarker = require('mdast-comment-marker')
 
-module.exports = commentconfig;
+module.exports = commentconfig
 
 /* Modify `processor` to read configuration from comments. */
 function commentconfig() {
-  var proto = this.Parser && this.Parser.prototype;
-  var Compiler = this.Compiler;
-  var block = proto && proto.blockTokenizers;
-  var inline = proto && proto.inlineTokenizers;
-  var compiler = Compiler && Compiler.prototype && Compiler.prototype.visitors;
+  var proto = this.Parser && this.Parser.prototype
+  var Compiler = this.Compiler
+  var block = proto && proto.blockTokenizers
+  var inline = proto && proto.inlineTokenizers
+  var compiler = Compiler && Compiler.prototype && Compiler.prototype.visitors
 
   if (block && block.html) {
-    block.html = factory(block.html);
+    block.html = factory(block.html)
   }
 
   if (inline && inline.html) {
-    inline.html = factory(inline.html);
+    inline.html = factory(inline.html)
   }
 
   if (compiler && compiler.html) {
-    compiler.html = factory(compiler.html);
+    compiler.html = factory(compiler.html)
   }
 }
 
 /* Wrapper factory. */
 function factory(original) {
-  replacement.locator = original.locator;
+  replacement.locator = original.locator
 
-  return replacement;
+  return replacement
 
   /* Replacer for tokeniser or visitor. */
   function replacement(node) {
-    var self = this;
-    var result = original.apply(self, arguments);
-    var marker = commentMarker(result && result.type ? result : node);
+    var self = this
+    var result = original.apply(self, arguments)
+    var marker = commentMarker(result && result.type ? result : node)
 
     if (marker && marker.name === 'remark') {
       try {
-        self.setOptions(marker.parameters);
+        self.setOptions(marker.parameters)
       } catch (err) {
-        self.file.fail(err.message, marker.node);
+        self.file.fail(err.message, marker.node)
       }
     }
 
-    return result;
+    return result
   }
 }

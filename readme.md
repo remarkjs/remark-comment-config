@@ -25,16 +25,16 @@ Say we have the following file, `example.md`:
 And our script, `example.js`, looks as follows:
 
 ```javascript
-var vfile = require('to-vfile');
-var remark = require('remark');
-var commentConfig = require('remark-comment-config');
+var vfile = require('to-vfile')
+var remark = require('remark')
+var commentConfig = require('remark-comment-config')
 
 remark()
   .use(commentConfig)
-  .process(vfile.readSync('example.md'), function (err, file) {
-    if (err) throw err;
-    console.log(String(file));
-  });
+  .process(vfile.readSync('example.md'), function(err, file) {
+    if (err) throw err
+    console.log(String(file))
+  })
 ```
 
 Now, running `node example` yields:
