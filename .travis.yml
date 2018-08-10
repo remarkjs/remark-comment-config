@@ -7,7 +7,7 @@ deploy:
   provider: releases
   skip_cleanup: true
   api_key:
-    secure: NPY9xkGBFI81Cipj90ncffU/e6yBgzV9NUhRNAYsXol7rH7RaOdYXrMTwrDtrp8UUY8iKuFDED0u6t/+BQ3heeGnglLY7/7eCwMff23zXNVdy4sVO2RqTmjCqGR43Im3EGLXmWQNH7D8FPbqvlPeCXYRvqYF1m12TvX+V1xIfdM=
+    secure: NWvYBdygvzvhOPlt9Pfq/fdzdP/5KFpU2A9xoFIOaSsVy37P2N1SQ0FWCfCDfgSVvbue/ZpqqevTp8jAS+FNHqU2Fvf7oeEXuzAvRC/9Rjmd18dnLCMOROYhuudDOMYHgUQDBAr6p1EuQ9ctGxFtedU4hJPVgSfEPb8pv6Aq4x0=
   file:
     - "remark-comment-config.js"
     - "remark-comment-config.min.js"
