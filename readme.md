@@ -90,7 +90,7 @@ repository, organisation, or community you agree to abide by its terms.
 
 [chat]: https://gitter.im/remarkjs/Lobby
 
-[license]: LICENSE
+[license]: license
 
 [author]: http://wooorm.com
 
