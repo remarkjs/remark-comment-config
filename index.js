@@ -40,8 +40,8 @@ function factory(original) {
     if (marker && marker.name === 'remark') {
       try {
         self.setOptions(marker.parameters)
-      } catch (err) {
-        self.file.fail(err.message, marker.node)
+      } catch (error) {
+        self.file.fail(error.message, marker.node)
       }
     }
 
