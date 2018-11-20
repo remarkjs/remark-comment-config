@@ -1,4 +1,11 @@
-# remark-comment-config [![Build Status][build-badge]][build-status] [![Coverage Status][coverage-badge]][coverage-status] [![Chat][chat-badge]][chat]
+# remark-comment-config
+
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Chat][chat-badge]][chat]
+[![Sponsors][sponsors-badge]][collective]
+[![Backers][backers-badge]][collective]
 
 Configure [**remark**][remark] with comments.
 
@@ -80,15 +87,25 @@ repository, organisation, or community you agree to abide by its terms.
 
 [build-badge]: https://img.shields.io/travis/remarkjs/remark-comment-config.svg
 
-[build-status]: https://travis-ci.org/remarkjs/remark-comment-config
+[build]: https://travis-ci.org/remarkjs/remark-comment-config
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/remarkjs/remark-comment-config.svg
 
-[coverage-status]: https://codecov.io/github/remarkjs/remark-comment-config
+[coverage]: https://codecov.io/github/remarkjs/remark-comment-config
 
-[chat-badge]: https://img.shields.io/gitter/room/remarkjs/Lobby.svg
+[downloads-badge]: https://img.shields.io/npm/dm/remark-comment-config.svg
 
-[chat]: https://gitter.im/remarkjs/Lobby
+[downloads]: https://www.npmjs.com/package/remark-comment-config
+
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+
+[chat]: https://spectrum.chat/unified/remark
+
+[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+
+[backers-badge]: https://opencollective.com/unified/backers/badge.svg
+
+[collective]: https://opencollective.com/unified
 
 [license]: license
 
