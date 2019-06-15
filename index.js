@@ -4,6 +4,8 @@ var commentMarker = require('mdast-comment-marker')
 
 module.exports = commentconfig
 
+var origin = 'remark-comment-config:invalid-options'
+
 // Modify `processor` to read configuration from comments.
 function commentconfig() {
   var proto = this.Parser && this.Parser.prototype
@@ -41,7 +43,7 @@ function factory(original) {
       try {
         self.setOptions(marker.parameters)
       } catch (error) {
-        self.file.fail(error.message, marker.node)
+        self.file.fail(error.message, marker.node, origin)
       }
     }
 
