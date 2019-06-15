@@ -4,7 +4,7 @@ var commentMarker = require('mdast-comment-marker')
 
 module.exports = commentconfig
 
-/* Modify `processor` to read configuration from comments. */
+// Modify `processor` to read configuration from comments.
 function commentconfig() {
   var proto = this.Parser && this.Parser.prototype
   var Compiler = this.Compiler
@@ -25,13 +25,13 @@ function commentconfig() {
   }
 }
 
-/* Wrapper factory. */
+// Wrapper factory.
 function factory(original) {
   replacement.locator = original.locator
 
   return replacement
 
-  /* Replacer for tokeniser or visitor. */
+  // Replacer for tokeniser or visitor.
   function replacement(node) {
     var self = this
     var result = original.apply(self, arguments)
