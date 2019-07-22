@@ -66,6 +66,12 @@ Parses comments, such as `<!--remark foo="bar" baz-->`, and passes the
 This is essentially the same as [`remark-yaml-config`][remark-yaml-config],
 except that comments are invisible when rendering to HTML (such as on GitHub).
 
+## Security
+
+Use of `remark-comment-config` can change how Markdown is parsed or compiled.
+If the Markdown is user provided, this may open you up to a
+[cross-site scripting (XSS)][xss] attack.
+
 ## Related
 
 *   [`remark-yaml-config`][remark-yaml-config]
@@ -138,3 +144,5 @@ abide by its terms.
 [remark-yaml-config]: https://github.com/remarkjs/remark-yaml-config
 
 [remark-message-control]: https://github.com/remarkjs/remark-message-control
+
+[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
