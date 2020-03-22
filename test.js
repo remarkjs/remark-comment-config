@@ -8,11 +8,9 @@ var remark2rehype = require('remark-rehype')
 var html = require('rehype-stringify')
 var commentConfig = require('.')
 
-test('remark-comment-config()', function(t) {
-  t.doesNotThrow(function() {
-    unified()
-      .use(commentConfig)
-      .freeze()
+test('remark-comment-config()', function (t) {
+  t.doesNotThrow(function () {
+    unified().use(commentConfig).freeze()
   }, 'should not throw if without parser or compiler')
 
   t.equal(
@@ -28,17 +26,15 @@ test('remark-comment-config()', function(t) {
   )
 
   t.throws(
-    function() {
+    function () {
       comments(['<!--remark bullet="?"-->', '', '-   Foo', ''].join('\n'))
     },
     /1:1-1:25: Invalid value `\?` for setting `options\.bullet`/,
     'should throw exceptions with location information'
   )
 
-  t.doesNotThrow(function() {
-    unified()
-      .use(commentConfig)
-      .freeze()
+  t.doesNotThrow(function () {
+    unified().use(commentConfig).freeze()
   }, 'should not throw without parser / compiler')
 
   t.equal(
