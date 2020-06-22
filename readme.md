@@ -95,7 +95,7 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/remarkjs/remark-comment-config/master.svg
+[build-badge]: https://img.shields.io/travis/remarkjs/remark-comment-config/main.svg
 
 [build]: https://travis-ci.org/remarkjs/remark-comment-config
 
@@ -125,11 +125,11 @@ abide by its terms.
 
 [health]: https://github.com/remarkjs/.github
 
-[contributing]: https://github.com/remarkjs/.github/blob/master/contributing.md
+[contributing]: https://github.com/remarkjs/.github/blob/HEAD/contributing.md
 
-[support]: https://github.com/remarkjs/.github/blob/master/support.md
+[support]: https://github.com/remarkjs/.github/blob/HEAD/support.md
 
-[coc]: https://github.com/remarkjs/.github/blob/master/code-of-conduct.md
+[coc]: https://github.com/remarkjs/.github/blob/HEAD/code-of-conduct.md
 
 [license]: license
 
@@ -137,9 +137,9 @@ abide by its terms.
 
 [remark]: https://github.com/remarkjs/remark
 
-[parse-settings]: https://github.com/remarkjs/remark/blob/master/packages/remark-parse/readme.md#options
+[parse-settings]: https://github.com/remarkjs/remark/blob/HEAD/packages/remark-parse/readme.md#options
 
-[stringify-settings]: https://github.com/remarkjs/remark/blob/master/packages/remark-stringify/readme.md#options
+[stringify-settings]: https://github.com/remarkjs/remark/blob/HEAD/packages/remark-stringify/readme.md#options
 
 [remark-yaml-config]: https://github.com/remarkjs/remark-yaml-config
 
