@@ -23,7 +23,7 @@ npm install remark-comment-config
 Say we have the following file, `example.md`:
 
 ```markdown
-<!--remark commonmark bullet="*"-->
+<!--remark commonmark bullet="+"-->
 
 1) Commonmark list (this is a parse setting)
 
@@ -39,7 +39,7 @@ var commentConfig = require('remark-comment-config')
 
 remark()
   .use(commentConfig)
-  .process(vfile.readSync('example.md'), function(err, file) {
+  .process(vfile.readSync('example.md'), function (err, file) {
     if (err) throw err
     console.log(String(file))
   })
@@ -48,11 +48,11 @@ remark()
 Now, running `node example` yields:
 
 ```markdown
-<!--remark commonmark bullet="*"-->
+<!--remark commonmark bullet="+"-->
 
 1.  Commonmark list (this is a parse setting)
 
-*   List item (this is a stringify setting)
++   List item (this is a stringify setting)
 ```
 
 ## API
