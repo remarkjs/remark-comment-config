@@ -10,6 +10,14 @@
 
 [**remark**][remark] plugin to configure it with comments.
 
+## Important!
+
+This plugin is affected by the new parser in remark
+([`micromark`](https://github.com/micromark/micromark),
+see [`remarkjs/remark#536`](https://github.com/remarkjs/remark/pull/536)).
+Use version 5 while you’re still on remark 12.
+Use version 6 for remark 13+.
+
 ## Install
 
 [npm][]:
@@ -23,9 +31,7 @@ npm install remark-comment-config
 Say we have the following file, `example.md`:
 
 ```markdown
-<!--remark commonmark bullet="+"-->
-
-1) Commonmark list (this is a parse setting)
+<!--remark bullet="+"-->
 
 - List item (this is a stringify setting)
 ```
@@ -48,9 +54,7 @@ remark()
 Now, running `node example` yields:
 
 ```markdown
-<!--remark commonmark bullet="+"-->
-
-1.  Commonmark list (this is a parse setting)
+<!--remark bullet="+"-->
 
 +   List item (this is a stringify setting)
 ```
@@ -61,14 +65,14 @@ Now, running `node example` yields:
 
 Plugin to configure remark with comments.
 Parses comments, such as `<!--remark foo="bar" baz-->`, and passes the
-“attributes” as [parse][parse-settings] and [stringify][stringify-settings].
+“attributes” as [`remark-stringify`][stringify-settings].
 
 This is essentially the same as [`remark-yaml-config`][remark-yaml-config],
 except that comments are invisible when rendering to HTML (such as on GitHub).
 
 ## Security
 
-Use of `remark-comment-config` can change how Markdown is parsed or compiled.
+Use of `remark-comment-config` can change how Markdown is compiled.
 If the Markdown is user provided, this may open you up to a
 [cross-site scripting (XSS)][xss] attack.
 
@@ -136,8 +140,6 @@ abide by its terms.
 [author]: https://wooorm.com
 
 [remark]: https://github.com/remarkjs/remark
-
-[parse-settings]: https://github.com/remarkjs/remark/blob/HEAD/packages/remark-parse/readme.md#options
 
 [stringify-settings]: https://github.com/remarkjs/remark/blob/HEAD/packages/remark-stringify/readme.md#options
 

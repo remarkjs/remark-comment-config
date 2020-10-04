@@ -1,52 +1,42 @@
 'use strict'
 
+module.exports = commentConfig
+
 var commentMarker = require('mdast-comment-marker')
 
-module.exports = commentconfig
+var warningIssued
 
-var origin = 'remark-comment-config:invalid-options'
+// Modify remark to read configuration from comments.
+function commentConfig() {
+  var data = this.data()
 
-// Modify `processor` to read configuration from comments.
-function commentconfig() {
-  var proto = this.Parser && this.Parser.prototype
-  var Compiler = this.Compiler
-  var block = proto && proto.blockTokenizers
-  var inline = proto && proto.inlineTokenizers
-  var compiler = Compiler && Compiler.prototype && Compiler.prototype.visitors
-
-  if (block && block.html) {
-    block.html = factory(block.html)
+  /* istanbul ignore next - old remark. */
+  if (
+    !warningIssued &&
+    this.Compiler &&
+    this.Compiler.prototype &&
+    this.Compiler.prototype.visitors
+  ) {
+    warningIssued = true
+    console.warn(
+      '[remark-comment-config] Warning: please upgrade to remark 13 to use this plugin'
+    )
   }
 
-  if (inline && inline.html) {
-    inline.html = factory(inline.html)
-  }
+  /* istanbul ignore next - other extensions */
+  if (!data.toMarkdownExtensions) data.toMarkdownExtensions = []
 
-  if (compiler && compiler.html) {
-    compiler.html = factory(compiler.html)
-  }
-}
+  data.toMarkdownExtensions.push({handlers: {html: commentConfigHtml}})
 
-// Wrapper factory.
-function factory(original) {
-  replacement.locator = original.locator
-
-  return replacement
-
-  // Replacer for tokeniser or visitor.
-  function replacement(node) {
-    var self = this
-    var result = original.apply(self, arguments)
-    var marker = commentMarker(result && result.type ? result : node)
+  function commentConfigHtml(node) {
+    var marker = commentMarker(node)
 
     if (marker && marker.name === 'remark') {
-      try {
-        self.setOptions(marker.parameters)
-      } catch (error) {
-        self.file.fail(error.message, marker.node, origin)
-      }
+      Object.assign(this.options, marker.parameters)
     }
 
-    return result
+    // Like the source:
+    // <https://github.com/syntax-tree/mdast-util-to-markdown/blob/e40e015/lib/handle/html.js#L4>
+    return node.value || ''
   }
 }

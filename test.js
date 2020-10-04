@@ -25,11 +25,17 @@ test('remark-comment-config()', function (t) {
     'should set stringification options'
   )
 
+  t.equal(
+    comments('<!--other bullet="+"-->\n\n- Foo'),
+    '<!--other bullet="+"-->\n\n*   Foo\n',
+    'should ignore non-remark comments'
+  )
+
   t.throws(
     function () {
       comments('<!--remark bullet="?"-->\n\n- Foo')
     },
-    /1:1-1:25: Invalid value `\?` for setting `options\.bullet`/,
+    /Cannot serialize items with `\?` for `options.bullet`/,
     'should throw exceptions with location information'
   )
 
@@ -46,7 +52,18 @@ test('remark-comment-config()', function (t) {
       .processSync('<!--remark bullet="+"-->\n\n- Foo')
       .toString(),
     '<ul>\n<li>Foo</li>\n</ul>',
-    'should ignore missing compilers'
+    'should ignore a different compiler'
+  )
+
+  t.equal(
+    unified()
+      .use(stringify)
+      .use(commentConfig)
+      .freeze()
+      .stringify({type: 'root', children: [{type: 'html', value: ''}]})
+      .toString(),
+    '',
+    'should not fail on empty html'
   )
 
   t.end()
