@@ -99,9 +99,9 @@ abide by its terms.
 
 <!-- Definitions -->
 
-[build-badge]: https://img.shields.io/travis/remarkjs/remark-comment-config/main.svg
+[build-badge]: https://github.com/remarkjs/remark-comment-config/workflows/main/badge.svg
 
-[build]: https://travis-ci.org/remarkjs/remark-comment-config
+[build]: https://github.com/remarkjs/remark-comment-config/actions
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/remarkjs/remark-comment-config.svg
 
