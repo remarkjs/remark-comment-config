@@ -1,14 +1,14 @@
 import test from 'tape'
-import unified from 'unified'
-import parse from 'remark-parse'
-import stringify from 'remark-stringify'
-import remark2rehype from 'remark-rehype'
-import html from 'rehype-stringify'
-import commentConfig from './index.js'
+import {unified} from 'unified'
+import remarkParse from 'remark-parse'
+import remarkStringify from 'remark-stringify'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
+import remarkCommentConfig from './index.js'
 
-test('remark-comment-config()', function (t) {
+test('remarkCommentConfig', function (t) {
   t.doesNotThrow(function () {
-    unified().use(commentConfig).freeze()
+    unified().use(remarkCommentConfig).freeze()
   }, 'should not throw if without parser or compiler')
 
   t.equal(
@@ -38,15 +38,15 @@ test('remark-comment-config()', function (t) {
   )
 
   t.doesNotThrow(function () {
-    unified().use(commentConfig).freeze()
+    unified().use(remarkCommentConfig).freeze()
   }, 'should not throw without parser / compiler')
 
   t.equal(
     unified()
-      .use(parse)
-      .use(remark2rehype)
-      .use(html)
-      .use(commentConfig)
+      .use(remarkParse)
+      .use(remarkRehype)
+      .use(rehypeStringify)
+      .use(remarkCommentConfig)
       .processSync('<!--remark bullet="+"-->\n\n- Foo')
       .toString(),
     '<ul>\n<li>Foo</li>\n</ul>',
@@ -55,8 +55,8 @@ test('remark-comment-config()', function (t) {
 
   t.equal(
     unified()
-      .use(stringify)
-      .use(commentConfig)
+      .use(remarkStringify)
+      .use(remarkCommentConfig)
       .freeze()
       .stringify({type: 'root', children: [{type: 'html', value: ''}]})
       .toString(),
@@ -69,9 +69,9 @@ test('remark-comment-config()', function (t) {
 
 function comments(value, options) {
   return unified()
-    .use(parse)
-    .use(stringify)
-    .use(commentConfig, options)
+    .use(remarkParse)
+    .use(remarkStringify)
+    .use(remarkCommentConfig, options)
     .processSync(value)
     .toString()
 }
