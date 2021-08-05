@@ -67,11 +67,15 @@ test('remarkCommentConfig', (t) => {
   t.end()
 })
 
-function comments(value, options) {
+/**
+ * @param {string} value
+ * @returns string
+ */
+function comments(value) {
   return unified()
     .use(remarkParse)
     .use(remarkStringify)
-    .use(remarkCommentConfig, options)
+    .use(remarkCommentConfig)
     .processSync(value)
     .toString()
 }
