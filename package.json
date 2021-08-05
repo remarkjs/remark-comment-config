@@ -32,7 +32,7 @@
     "index.js"
   ],
   "dependencies": {
-    "mdast-comment-marker": "^1.0.1"
+    "mdast-comment-marker": "^2.0.0"
   },
   "devDependencies": {
     "c8": "^7.0.0",

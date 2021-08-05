@@ -1,4 +1,4 @@
-import commentMarker from 'mdast-comment-marker'
+import {commentMarker} from 'mdast-comment-marker'
 
 var warningIssued
 
