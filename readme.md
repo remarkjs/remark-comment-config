@@ -20,6 +20,9 @@ Use version 6 for remark 13+.
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -39,14 +42,16 @@ Say we have the following file, `example.md`:
 And our script, `example.js`, looks as follows:
 
 ```js
-var vfile = require('to-vfile')
-var remark = require('remark')
-var commentConfig = require('remark-comment-config')
+import {readSync} from 'to-vfile'
+import {remark} from 'remark'
+import remarkCommentConfig from 'remark-comment-config'
+
+const file = readSync('example.md')
 
 remark()
-  .use(commentConfig)
-  .process(vfile.readSync('example.md'), function (err, file) {
-    if (err) throw err
+  .use(remarkCommentConfig)
+  .process(file)
+  .then((file) => {
     console.log(String(file))
   })
 ```
@@ -61,7 +66,10 @@ Now, running `node example` yields:
 
 ## API
 
-### `remark().use(commentConfig)`
+This package exports no identifiers.
+The default export is `remarkCommentConfig`.
+
+### `unified().use(remarkCommentConfig)`
 
 Plugin to configure remark with comments.
 Parses comments, such as `<!--remark foo="bar" baz-->`, and passes the
