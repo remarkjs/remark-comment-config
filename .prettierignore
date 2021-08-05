@@ -1,5 +1,2 @@
 coverage/
-remark-comment-config.js
-remark-comment-config.min.js
-*.json
 *.md
