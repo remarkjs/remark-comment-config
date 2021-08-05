@@ -1,12 +1,10 @@
-'use strict'
-
-var test = require('tape')
-var unified = require('unified')
-var parse = require('remark-parse')
-var stringify = require('remark-stringify')
-var remark2rehype = require('remark-rehype')
-var html = require('rehype-stringify')
-var commentConfig = require('.')
+import test from 'tape'
+import unified from 'unified'
+import parse from 'remark-parse'
+import stringify from 'remark-stringify'
+import remark2rehype from 'remark-rehype'
+import html from 'rehype-stringify'
+import commentConfig from './index.js'
 
 test('remark-comment-config()', function (t) {
   t.doesNotThrow(function () {

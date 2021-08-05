@@ -25,12 +25,15 @@
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
   ],
-  "dependencies": {
-    "mdast-comment-marker": "^1.0.1"
-  },
+  "sideEffects": false,
+  "type": "module",
+  "main": "index.js",
   "files": [
     "index.js"
   ],
+  "dependencies": {
+    "mdast-comment-marker": "^1.0.1"
+  },
   "devDependencies": {
     "c8": "^7.0.0",
     "prettier": "^2.0.0",
@@ -60,7 +63,10 @@
   },
   "xo": {
     "prettier": true,
-    "esnext": false
+    "rules": {
+      "no-var": "off",
+      "prefer-arrow-callback": "off"
+    }
   },
   "remarkConfig": {
     "plugins": [

@@ -1,13 +1,9 @@
-'use strict'
-
-module.exports = commentConfig
-
-var commentMarker = require('mdast-comment-marker')
+import commentMarker from 'mdast-comment-marker'
 
 var warningIssued
 
 // Modify remark to read configuration from comments.
-function commentConfig() {
+export default function remarkCommentConfig() {
   var data = this.data()
 
   // Old remark.
