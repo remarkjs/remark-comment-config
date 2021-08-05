@@ -1,10 +1,10 @@
 import {commentMarker} from 'mdast-comment-marker'
 
-var warningIssued
+let warningIssued
 
 // Modify remark to read configuration from comments.
 export default function remarkCommentConfig() {
-  var data = this.data()
+  const data = this.data()
 
   // Old remark.
   /* c8 ignore next 11 */
@@ -27,7 +27,7 @@ export default function remarkCommentConfig() {
   data.toMarkdownExtensions.push({handlers: {html: commentConfigHtml}})
 
   function commentConfigHtml(node) {
-    var marker = commentMarker(node)
+    const marker = commentMarker(node)
 
     if (marker && marker.name === 'remark') {
       Object.assign(this.options, marker.parameters)

@@ -6,8 +6,8 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import remarkCommentConfig from './index.js'
 
-test('remarkCommentConfig', function (t) {
-  t.doesNotThrow(function () {
+test('remarkCommentConfig', (t) => {
+  t.doesNotThrow(() => {
     unified().use(remarkCommentConfig).freeze()
   }, 'should not throw if without parser or compiler')
 
@@ -30,14 +30,14 @@ test('remarkCommentConfig', function (t) {
   )
 
   t.throws(
-    function () {
+    () => {
       comments('<!--remark bullet="?"-->\n\n- Foo')
     },
     /Cannot serialize items with `\?` for `options.bullet`/,
     'should throw exceptions with location information'
   )
 
-  t.doesNotThrow(function () {
+  t.doesNotThrow(() => {
     unified().use(remarkCommentConfig).freeze()
   }, 'should not throw without parser / compiler')
 
