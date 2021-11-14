@@ -8,60 +8,119 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**remark**][remark] plugin to configure it with comments.
+**[remark][]** plugin to configure it with comments.
 
-## Important!
+## Contents
 
-This plugin is affected by the new parser in remark
-([`micromark`](https://github.com/micromark/micromark),
-see [`remarkjs/remark#536`](https://github.com/remarkjs/remark/pull/536)).
-Use version 5 while you’re still on remark 12.
-Use version 6 for remark 13+.
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Install](#install)
+*   [Use](#use)
+*   [API](#api)
+    *   [`unified().use(remarkCommentConfig)`](#unifieduseremarkcommentconfig)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Security](#security)
+*   [Related](#related)
+*   [Contribute](#contribute)
+*   [License](#license)
+
+## What is this?
+
+This package is a [unified][] ([remark][]) plugin to configure remark
+(specifically, how `remark-stringify` formats markdown) from comments.
+
+**unified** is a project that transforms content with abstract syntax trees
+(ASTs).
+**remark** adds support for markdown to unified.
+**mdast** is the markdown AST that remark uses.
+This is a remark plugin that configures how `remark-stringify` serializes mdast.
+
+## When should I use this?
+
+This project is useful when you want to change how markdown is formatted,
+repeatedly, from within a file.
+You can use this when you trust authors and want to give them control.
+
+This plugin is very similar to the alternative
+[`remark-yaml-config`][remark-yaml-config].
+The difference is that that plugin uses YAML frontmatter, which comes at the
+start of documents, whereas this plugin uses comments, which can come anywhere
+in the document.
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
-Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
-
-[npm][]:
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c).
+In Node.js (version 12.20+, 14.14+, or 16.0+), install with [npm][]:
 
 ```sh
 npm install remark-comment-config
 ```
 
+In Deno with [Skypack][]:
+
+```js
+import remarkCommentConfig from 'https://cdn.skypack.dev/remark-comment-config@7?dts'
+```
+
+In browsers with [Skypack][]:
+
+```html
+<script type="module">
+  import remarkCommentConfig from 'https://cdn.skypack.dev/remark-comment-config@7?min'
+</script>
+```
+
 ## Use
 
-Say we have the following file, `example.md`:
+Say we have the following file `example.md`:
 
 ```markdown
 <!--remark bullet="+"-->
 
-- List item (this is a stringify setting)
+- a
+
+<!--remark bullet="-"-->
+
+- b
+
+<!--remark bullet="*"-->
+
+- c
 ```
 
-And our script, `example.js`, looks as follows:
+And our module `example.js` looks as follows:
 
 ```js
-import {readSync} from 'to-vfile'
+import {read} from 'to-vfile'
 import {remark} from 'remark'
 import remarkCommentConfig from 'remark-comment-config'
 
-const file = readSync('example.md')
+main()
 
-remark()
-  .use(remarkCommentConfig)
-  .process(file)
-  .then((file) => {
-    console.log(String(file))
-  })
+async function main() {
+  const file = await remark()
+    .use(remarkCommentConfig)
+    .process(await read('example.md'))
+
+  console.log(String(file))
+}
 ```
 
-Now, running `node example` yields:
+Now running `node example.js` yields:
 
 ```markdown
 <!--remark bullet="+"-->
 
-+   List item (this is a stringify setting)
++   a
+
+<!--remark bullet="-"-->
+
+-   b
+
+<!--remark bullet="*"-->
+
+*   c
 ```
 
 ## API
@@ -71,25 +130,40 @@ The default export is `remarkCommentConfig`.
 
 ### `unified().use(remarkCommentConfig)`
 
-Plugin to configure remark with comments.
-Parses comments, such as `<!--remark foo="bar" baz-->`, and passes the
-“attributes” as [`remark-stringify`][stringify-settings].
+Configure remark with comments.
+There are no options.
 
-This is essentially the same as [`remark-yaml-config`][remark-yaml-config],
-except that comments are invisible when rendering to HTML (such as on GitHub).
+Comments should start with `remark` and contain “attributes” for settings.
+For example, `<!--remark foo="bar" baz-->`.
+The settings are passed to [`remark-stringify`][stringify-settings].
+
+## Types
+
+This package is fully typed with [TypeScript][].
+There are no extra exported types.
+
+## Compatibility
+
+Projects maintained by the unified collective are compatible with all maintained
+versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, and 16.0+.
+Our projects sometimes work with older versions, but this is not guaranteed.
+
+This plugin works with `remark` version 13+.
+Version 5 (and lower) worked with older versions of remark.
 
 ## Security
 
-Use of `remark-comment-config` can change how Markdown is compiled.
-If the Markdown is user provided, this may open you up to a
+Use of `remark-comment-config` can change how markdown is compiled.
+If the markdown is user provided, this may open you up to a
 [cross-site scripting (XSS)][xss] attack.
 
 ## Related
 
 *   [`remark-yaml-config`][remark-yaml-config]
-    — Configure remark from YAML
+    — configure remark with YAML
 *   [`remark-message-control`][remark-message-control]
-    — Configure messages with comments
+    — configure messages with comments
 
 ## Contribute
 
@@ -135,6 +209,8 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[skypack]: https://www.skypack.dev
+
 [health]: https://github.com/remarkjs/.github
 
 [contributing]: https://github.com/remarkjs/.github/blob/HEAD/contributing.md
@@ -148,6 +224,10 @@ abide by its terms.
 [author]: https://wooorm.com
 
 [remark]: https://github.com/remarkjs/remark
+
+[unified]: https://github.com/unifiedjs/unified
+
+[typescript]: https://www.typescriptlang.org
 
 [stringify-settings]: https://github.com/remarkjs/remark/blob/HEAD/packages/remark-stringify/readme.md#options
 
