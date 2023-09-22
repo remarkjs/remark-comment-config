@@ -21,6 +21,7 @@ export default function remarkCommentConfig() {
         const marker = commentMarker(node)
 
         if (marker && marker.name === 'remark') {
+          // @ts-expect-error: to do: fix types.
           Object.assign(this.options, marker.parameters)
         }
 
@@ -34,9 +35,7 @@ export default function remarkCommentConfig() {
   const extensions = /** @type {Extension[]} */ (
     // Other extensions
     /* c8 ignore next 2 */
-    data.toMarkdownExtensions
-      ? data.toMarkdownExtensions
-      : (data.toMarkdownExtensions = [])
+    data.toMarkdownExtensions || (data.toMarkdownExtensions = [])
   )
 
   extensions.push(commentConfig)
