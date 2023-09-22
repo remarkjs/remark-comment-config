@@ -1,17 +1,23 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
-import {unified} from 'unified'
-import remarkParse from 'remark-parse'
-import remarkStringify from 'remark-stringify'
-import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import remarkStringify from 'remark-stringify'
+import {unified} from 'unified'
 import remarkCommentConfig from './index.js'
 
 test('remarkCommentConfig', async function (t) {
+  await t.test('should expose the public api', async function () {
+    assert.deepEqual(Object.keys(await import('./index.js')).sort(), [
+      'default'
+    ])
+  })
+
   await t.test(
     'should not throw if without parser or compiler',
     async function () {
-      assert.doesNotThrow(() => {
+      assert.doesNotThrow(function () {
         unified().use(remarkCommentConfig).freeze()
       })
     }
@@ -82,8 +88,12 @@ test('remarkCommentConfig', async function (t) {
 })
 
 /**
+ * Process.
+ *
  * @param {string} value
+ *   Document.
  * @returns {Promise<string>}
+ *   Processed document.
  */
 async function comments(value) {
   return String(
