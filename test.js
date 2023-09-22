@@ -20,21 +20,21 @@ test('remarkCommentConfig', async function (t) {
   await t.test('should set parse options', async function () {
     assert.equal(
       await comments('<!--remark commonmark-->\n\n1)  Foo'),
-      '<!--remark commonmark-->\n\n1.  Foo\n'
+      '<!--remark commonmark-->\n\n1. Foo\n'
     )
   })
 
   await t.test('should set stringification options', async function () {
     assert.equal(
       await comments('<!--remark bullet="+"-->\n\n- Foo'),
-      '<!--remark bullet="+"-->\n\n+   Foo\n'
+      '<!--remark bullet="+"-->\n\n+ Foo\n'
     )
   })
 
   await t.test('should ignore non-remark comments', async function () {
     assert.equal(
       await comments('<!--other bullet="+"-->\n\n- Foo'),
-      '<!--other bullet="+"-->\n\n*   Foo\n'
+      '<!--other bullet="+"-->\n\n* Foo\n'
     )
   })
 
