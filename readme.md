@@ -54,14 +54,14 @@ npm install remark-comment-config
 In Deno with [`esm.sh`][esmsh]:
 
 ```js
-import remarkCommentConfig from 'https://esm.sh/remark-comment-config@7'
+import remarkCommentConfig from 'https://esm.sh/remark-comment-config@8'
 ```
 
 In browsers with [`esm.sh`][esmsh]:
 
 ```html
 <script type="module">
-  import remarkCommentConfig from 'https://esm.sh/remark-comment-config@7?bundle'
+  import remarkCommentConfig from 'https://esm.sh/remark-comment-config@8?bundle'
 </script>
 ```
 
